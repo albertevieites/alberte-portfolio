@@ -3,6 +3,39 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="My Portfolio">
-	<h1>UNDER CONSTRUCTION</h1>
-	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, aspernatur placeat distinctio nobis neque id libero tenetur iste iusto minima officia accusantium quaerat quas nam consequuntur. Voluptate ipsa qui iure.</p>
+	<div class="container">
+		<div class="morse">
+			<p class="pulse">..- -. -.. . .-.</p>
+			<p class="pulse">-.-. --- -. ... - .-. ..- -.-. - .. --- -.</p>
+		</div>
+	</div>
 </Layout>
+
+<style lang="scss">
+
+	.container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+	}
+	p {
+		font-size: 2.5rem;
+		font-weight: 800;
+	}
+
+	.pulse {
+				animation: pulse 5s ease-in infinite;
+		@keyframes pulse {
+  0% {
+    color: black;
+  }
+  100% {
+		color: white;
+  }
+}
+	}
+</style>
+
+
+
