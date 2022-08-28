@@ -24,5 +24,5 @@ Inside of this project, you'll see the following folders and files:
 
 ## Deployment
 <a href="https://alberte-portfolio.vercel.app/">
-  <img height="30" src="./public/images/heroku.svg"/>
+  <img height="30" src="./public/images/vercel-icon-dark.svg"/>
 </a>
