@@ -2,40 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="My Portfolio">
-	<div class="container">
-		<div class="morse">
-			<p class="pulse">..- -. -.. . .-.</p>
-			<p class="pulse">-.-. --- -. ... - .-. ..- -.-. - .. --- -.</p>
-		</div>
+<Layout title="Alberte Vieites">
+	<div class="index">
+		<h1>Alberte Vieites</h1>
 	</div>
 </Layout>
-
-<style lang="scss">
-
-	.container {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100vh;
-	}
-	p {
-		font-size: 2.5rem;
-		font-weight: 800;
-	}
-
-	.pulse {
-				animation: pulse 5s ease-in infinite;
-		@keyframes pulse {
-  0% {
-    color: black;
-  }
-  100% {
-		color: white;
-  }
-}
-	}
-</style>
-
-
-
