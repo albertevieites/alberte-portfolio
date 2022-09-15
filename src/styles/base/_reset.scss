@@ -14,9 +14,6 @@ body {
   min-height: 100vh;
   font-size: 100%;
   line-height: 1.4em;
-  font-smooth: always;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 img,
@@ -57,7 +54,6 @@ i,
 b,
 u,
 em {
-  font-size: 1em;
   font-weight: inherit;
   font-style: inherit;
   text-decoration: none;

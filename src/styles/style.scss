@@ -1,6 +1,3 @@
-html,
-body {
-  background-color: #1d1d1d;
-  color: #faf8ff;
-  font-family: 'Inter', sans-serif;
-}
+@use "./base";
+@use "./components";
+@use "./pages/index"

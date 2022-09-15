@@ -1,0 +1,12 @@
+@use '../abstracts/colors' as *;
+@use './font-face';
+
+html,
+body {
+  display: flex;
+
+  background-color: $clr-dark;
+
+  font-family: 'Inter', normal;
+  color: $clr-white;
+}
