@@ -1,0 +1,16 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/fonts" as *;
+
+.index {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5em;
+
+  padding-left: 2em;
+
+  p {
+    font-size: $f-s-2000;
+    font-weight: $f-w-500;
+  }
+}
