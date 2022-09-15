@@ -1,0 +1,18 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/fonts" as *;
+
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 40vw;
+  padding-top: 3em;
+  padding-left: 2em;
+
+  font-size: $f-s-400;
+
+  p {
+    padding-bottom: 2em;
+  }
+}

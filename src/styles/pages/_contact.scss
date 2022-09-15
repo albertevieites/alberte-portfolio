@@ -1,0 +1,84 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/fonts" as *;
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 35em;
+  padding-left: 2em;
+
+  h3 {
+    padding-bottom: 1.7em;
+    font-size: $f-s-800;
+    font-weight: $f-w-600;
+  }
+
+  &__data {
+    display: flex;
+
+    input {
+      width: 100%;
+      padding: 1.1em 0 1.1em 1em;
+      margin-right: 2em;
+      background-color: $clr-medium-dark;
+
+      font-size: $f-s-340;
+    }
+
+    ::placeholder {
+      color: $clr-light-grey;
+    }
+  }
+
+  &__subject {
+
+    input {
+      padding: 1.1em 0em 1.1em 1em;
+      width: 95%;
+      margin-top: 2em;
+      background-color: $clr-medium-dark;
+
+      font-size: $f-s-340;
+    }
+
+    ::placeholder {
+      color: $clr-light-grey;
+    }
+  }
+
+  &__message {
+    margin-top: 2em;
+    margin-bottom: 2em;
+
+    textarea {
+      width: 95%;
+      height: 9em;
+      padding-top: 1.1em;
+      padding-left: 1.1em;
+      background-color: $clr-medium-dark;
+
+      font-size: $f-s-340;
+    }
+
+    ::placeholder {
+      color: $clr-light-grey;
+    }
+  }
+
+  &__button {
+    width: 13em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: $clr-white;
+
+    input {
+      margin: 0 auto;
+
+      font-size: $f-s-380;
+      font-weight: $f-w-800;
+      color: $clr-dark;
+    }
+  }
+}

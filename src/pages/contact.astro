@@ -4,4 +4,32 @@ import Layout from "../layouts/Layout.astro";
 import '../styles/style.scss';
 ---
 
-<Layout title="Contact"></Layout>
+<Layout title="Contact">
+  <div class="contact">
+    <form action="https://formsubmit.co/albertevieites@gmail.com" method="POST">
+      <h3 class="contact__title">Contact me</h3>
+
+      <div class="contact__data">
+        <label for="name"></label>
+        <input type="text" name="name" placeholder="Full Name" required>
+
+        <label for="email"></label>
+        <input type="email" name="name" placeholder="Email" required>
+      </div>
+
+      <div class="contact__subject">
+        <label for="subject"></label>
+        <input type="text" placeholder="Subject">
+      </div>
+
+      <div class="contact__message">
+        <label for="message"></label>
+        <textarea placeholder="Message"></textarea>
+      </div>
+
+      <div class="contact__button">
+        <input type="submit" value="Drop me a message!">
+      </div>
+    </form>
+  </div>
+</Layout>
