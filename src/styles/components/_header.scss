@@ -41,6 +41,12 @@
       font-size: $f-s-480;
       letter-spacing: 0.1em;
       color: $clr-white;
+
+      &:hover {
+        background-color: $clr-white;
+
+        color: $clr-dark;
+      }
     }
   }
 
