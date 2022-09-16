@@ -1,7 +1,16 @@
 ---
-const { details } = Astro.props;
+const { project, image, alt, paragraph, github, deploy } = Astro.props;
 ---
 
   <div class="details">
-    <h1>{details}</h1>
+    <div class="details__visual">
+      <img src={image} alt={alt}>
+      <a href={github}>Github</a>
+      <a href={deploy}>Deployment</a>
+    </div>
+
+    <div class="details__content">
+      <h3>{project}</h3>
+      <p>{paragraph}</p>
+    </div>
   </div>

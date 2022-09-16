@@ -3,11 +3,51 @@
 
 .details {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 3em;
 
   width: 88vw;
   background-color: $clr-white;
 
   color: $clr-dark;
+
+  &__visual {
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 10em;
+    padding-left: 4em;
+
+    img {
+      width: 40vw;
+      margin-bottom: 5em;
+    }
+
+    a {
+      width: 40vw;
+      padding: 1em 0;
+      margin-bottom: 2em;
+      background-color: $clr-dark;
+
+      font-size: $f-s-380;
+      font-weight: 800;
+      text-align: center;
+      color: $clr-white;
+    }
+  }
+
+  &__content {
+    width: 35vw;
+    padding-top: 10em;
+    h3 {
+      padding-bottom: 1em;
+
+      font-size: $f-s-700;
+      font-weight: $f-w-800;
+    }
+
+    p {
+      font-size: $f-s-440;
+      line-height: 1.7em;
+    }
+  }
 }

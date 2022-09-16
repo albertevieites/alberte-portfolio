@@ -42,7 +42,8 @@
       letter-spacing: 0.1em;
       color: $clr-white;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: $clr-white;
 
         color: $clr-dark;
