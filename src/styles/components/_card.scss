@@ -1,0 +1,12 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/fonts" as *;
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-top: 0.1em solid $clr-light-grey;
+  border-bottom: 0.1em solid $clr-light-grey;
+  border-right: 0.1em solid $clr-light-grey;
+}

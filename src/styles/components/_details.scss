@@ -1,0 +1,13 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/fonts" as *;
+
+.details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 88vw;
+  background-color: $clr-white;
+
+  color: $clr-dark;
+}
