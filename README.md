@@ -23,6 +23,7 @@ Inside of this project, you'll see the following folders and files:
 * [Portfolio](http://www.albertevieites.com/)
 
 ## Deployment
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a49facb9-9c71-429c-9b29-4865ab59cc5e/deploy-status)](https://app.netlify.com/sites/alberte-portfolio/deploys)
 <a href="https://alberte-portfolio.vercel.app/">
   <img height="30" src="./public/images/vercel-icon-dark.svg"/>
 </a>
