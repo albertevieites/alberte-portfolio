@@ -1,0 +1,21 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/fonts" as *;
+
+.success {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin-left: 2em;
+
+  h1 {
+    padding-bottom: 0.7em;
+    font-size: $f-s-700;
+    font-weight: $f-w-800;
+    color: #008B6D;
+  }
+
+  p {
+    letter-spacing: 0.07em;
+  }
+}
