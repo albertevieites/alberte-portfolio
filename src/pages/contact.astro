@@ -6,7 +6,12 @@ import '../styles/style.scss';
 
 <Layout title="Contact">
   <div class="contact">
-    <form action="https://formsubmit.co/albertevieites@gmail.com" method="POST">
+    <form
+      name="contact"
+      action="/success"
+      method="POST"
+      data-netlify="true"
+    >
       <h3 class="contact__title">Contact me</h3>
 
       <div class="contact__data">
@@ -26,6 +31,8 @@ import '../styles/style.scss';
         <label for="message"></label>
         <textarea placeholder="Message"></textarea>
       </div>
+
+      <div data-netlify-recaptcha="true"></div>
 
       <div class="contact__button">
         <input type="submit" value="Drop me a message!">
