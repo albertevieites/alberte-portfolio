@@ -42,6 +42,8 @@
       letter-spacing: 0.1em;
       color: $clr-white;
 
+      transition: all 250ms;
+
       &:hover,
       &:focus {
         background-color: $clr-white;
