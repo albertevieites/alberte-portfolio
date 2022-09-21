@@ -2,7 +2,7 @@
 @use "../abstracts/fonts" as *;
 @use "../abstracts/mixins" as *;
 
-.header {
+.footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -10,18 +10,27 @@
   width: 15vw;
   border-right: 0.1em solid $clr-light-grey;
 
-  @include small {
+  @include large {
     display: none;
   }
 
-  @include desktop {
-    max-width: 10em;;
+  @include small {
+    flex-direction: row;
+    align-items: center;
+
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+
+    border-right: none;
   }
 
   h3 {
     padding-bottom: 0.7em;
 
-    font-size: $f-s-600;
+    font-size: $f-s-700;
     font-weight: $f-w-800;
     line-height: 1.1em;
   }
@@ -34,7 +43,7 @@
   }
 
   &__title {
-    padding: 1em;
+    padding: 1.7em;
   }
 
   &__navbar {
@@ -46,8 +55,15 @@
     text-align: center;
     color: $clr-light-grey;
 
+    @include small {
+      margin-bottom: 0;
+
+      border-top: none;
+      border-bottom: none;
+    }
+
     a {
-      font-size: $f-s-400;
+      font-size: $f-s-480;
       letter-spacing: 0.1em;
       color: $clr-white;
 
@@ -66,8 +82,16 @@
     display: flex;
     flex-direction: column;
 
+    @include small {
+      flex-direction: row;
+    }
+
     a {
       border-bottom: 0.1em solid $clr-light-grey;
+
+      @include small {
+        border-bottom: none;
+      }
     }
 
     a:last-child {

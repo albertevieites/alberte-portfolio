@@ -1,5 +1,6 @@
 @use "../abstracts/colors" as *;
 @use "../abstracts/fonts" as *;
+@use "../abstracts/mixins" as *;
 
 .index {
   display: flex;
@@ -9,8 +10,17 @@
 
   padding-left: 2em;
 
+  @include small {
+    height: 80vh;
+    padding-left: 1em;
+  }
+
   p {
     font-size: $f-s-2000;
     font-weight: $f-w-500;
+
+    @include small {
+      font-size: $f-s-1700;
+    }
   }
 }

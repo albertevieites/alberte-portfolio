@@ -1,5 +1,6 @@
 @use '../abstracts/colors' as *;
 @use './font-face';
+@use '../abstracts/mixins' as *;
 
 html,
 body {
@@ -9,4 +10,8 @@ body {
 
   font-family: 'Inter', normal;
   color: $clr-white;
+
+  @include small {
+    flex-direction: column;
+  }
 }
