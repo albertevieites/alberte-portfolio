@@ -1,6 +1,14 @@
+@use "../abstracts/mixins" as *;
+
 .work {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  width: 88vw;
+  grid-template-columns: 50% 50%;
+
+  width: 100vw;
+
+  @include small {
+    grid-template-columns: 1fr;
+
+    height: 30em;
+  }
 }

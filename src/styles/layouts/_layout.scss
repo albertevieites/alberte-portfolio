@@ -1,0 +1,9 @@
+@use "../abstracts/mixins" as *;
+
+body {
+  overflow: hidden;
+
+  @include small {
+    overflow: auto;
+  }
+}

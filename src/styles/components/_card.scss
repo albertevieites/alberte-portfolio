@@ -1,5 +1,6 @@
 @use "../abstracts/colors" as *;
 @use "../abstracts/fonts" as *;
+@use "../abstracts/mixins" as *;
 
 .card {
   display: flex;
@@ -11,6 +12,10 @@
   border-right: 0.1em solid $clr-light-grey;
 
   transition: all 300ms;
+
+  @include small {
+    border-right: none;
+  }
 
   &:hover {
     background-color: $clr-white;

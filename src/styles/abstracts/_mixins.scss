@@ -1,9 +1,16 @@
 $breackpoints: (
+  "phones": 430px,
   "small": 767px,
   "large": 768px,
+  "details": 900px,
   "desktop": 1024px,
 );
 
+@mixin phones {
+  @media screen and (max-width: map-get($breackpoints, "phones")) {
+    @content;
+  }
+}
 @mixin small {
   @media screen and (max-width: map-get($breackpoints, "small")) {
     @content;
@@ -11,6 +18,11 @@ $breackpoints: (
 }
 @mixin large {
   @media screen and (min-width: map-get($breackpoints, "large")) {
+    @content;
+  }
+}
+@mixin details{
+  @media screen and (max-width: map-get($breackpoints, "details")) {
     @content;
   }
 }

@@ -10,12 +10,15 @@
   width: 15vw;
   border-right: 0.1em solid $clr-light-grey;
 
-  @include small {
-    display: none;
-  }
-
   @include desktop {
     max-width: 10em;;
+  }
+
+  @include small {
+    flex-direction: row;
+    align-items: center;
+    width: 100vw;
+    border-right: none;
   }
 
   h3 {
@@ -35,6 +38,10 @@
 
   &__title {
     padding: 1em;
+
+    @include small {
+      width: 25vw;
+    }
   }
 
   &__navbar {
@@ -45,6 +52,10 @@
 
     text-align: center;
     color: $clr-light-grey;
+
+    @include small {
+      display: none;
+    }
 
     a {
       font-size: $f-s-400;
@@ -85,6 +96,12 @@
     gap: 0.5em;
 
     padding-bottom: 2em;
+
+    @include small {
+      gap: 1em;
+      padding-right: 1em;
+      padding-bottom: 0;
+    }
 
     img {
       width: 2.2em;
