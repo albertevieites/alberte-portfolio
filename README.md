@@ -3,16 +3,20 @@ This is a project using Astro as a static single generator.
 Inside of this project, you'll see the following folders and files:
 
 ```
-/
-├── public/
-│   └── assets/
-│   └── styles/
-├── src/
-│   └── components/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
+PROJECT_ROOT
+├── public
+│   ├── fonts
+│   └── images
+├── src
+│   ├── components
+│   ├── layouts
+│   ├── pages
+│   └── styles
+│        ├── abstracts
+│        ├── base
+│        ├── components
+│        ├── layouts
+│        └── pages
 └── package.json
 ```
 
