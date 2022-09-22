@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Contact</title>
+  <link rel="stylesheet" href="/assets/about-contact-imentor-index-mr-stick-success-work-yapic.44ee2e2f.css" /></head>
+  <body>
+    <header class="header">
+  <div class="header__title">
+    <a href="/">
+      <h3>Alberte Vieites</h3>
+      <h5>Web Developer</h5>
+    </a>
+  </div>
+
+  <nav class="header__navbar">
+    <ul class="header__list">
+      <a href="/about">
+        <li class="header__item--about btn active">About</li>
+      </a>
+      <a href="/work">
+        <li class="header__item--work btn">Work</li>
+      </a>
+      <a href="/contact">
+        <li class="header__item--contact btn">Contact</li>
+      </a>
+    </ul>
+  </nav>
+
+  <div class="header__social">
+    <a href="https://github.com/albertevieites/"><img src="./brand-github.svg" alt="gitgub profile"></a>
+    <a href="https://www.linkedin.com/in/albertevieites/"><img src="./brand-linkedin.svg" alt="linkedin profile"></a>
+  </div>
+</header>
+    <div class="contact">
+    <form id="form" name="contact" action="https://api.web3forms.com/submit" method="POST">
+      <h3 class="contact__title">Contact me</h3>
+
+      <input type="hidden" name="access_key" value="8120b10c-514e-48af-88ed-f7830d8d79f4">
+
+      <div class="contact__data">
+        <label for="name"></label>
+        <input type="text" name="name" placeholder="Full Name" required>
+
+        <label for="email"></label>
+        <input type="email" name="name" placeholder="Email" required>
+      </div>
+
+      <div class="contact__subject">
+        <label for="subject"></label>
+        <input type="text" name="subject" placeholder="Subject" required>
+      </div>
+
+      <div class="contact__message">
+        <label for="message"></label>
+        <textarea name="message" placeholder="Message" required></textarea>
+      </div>
+
+      <input type="hidden" name="redirect" value="https://web3forms.com/success">
+
+      <!-- <div class="h-captcha" data-captcha="true"></div> -->
+
+      <div class="contact__button">
+        <input type="submit" value="Drop me a message!">
+      </div>
+    </form>
+  </div>
+    <footer class="footer">
+  <div class="footer__title">
+    <a href="/">
+      <h3>Alberte Vieites</h3>
+      <h5>Web Developer</h5>
+    </a>
+  </div>
+
+  <nav class="footer__navbar">
+    <ul class="footer__list">
+      <div class="footer__element">
+        <a href="/about">
+          <li class="footer__item--about btn active">About</li>
+        </a>
+      </div>
+      <div class="footer__element">
+        <a href="/work">
+          <li class="footer__item--work btn">Work</li>
+        </a>
+      </div>
+      <div class="footer__element">
+        <a href="/contact">
+          <li class="footer__item--contact btn">Contact</li>
+        </a>
+      </div>
+    </ul>
+  </nav>
+
+  <div class="footer__social">
+    <a href="https://github.com/albertevieites/"><img src="./brand-github.svg" alt="gitgub profile"></a>
+    <a href="https://www.linkedin.com/in/albertevieites/"><img src="./brand-linkedin.svg" alt="linkedin profile"></a>
+  </div>
+</footer>
+  </body></html>
+
+<script src="https://web3forms.com/client/script.js" async defer>
+  const form = document.getElementById("form");
+
+  form.addEventListener("submit", function (e) {
+    const hCaptcha = form.querySelector(
+      "textarea[name=h-captcha-response]"
+    ).value;
+
+    if (!hCaptcha) {
+      e.preventDefault();
+      alert("Please fill out captcha field");
+      return;
+    }
+  });
+</script>
