@@ -8,6 +8,7 @@
   justify-content: space-between;
 
   width: 15vw;
+  background-color: $clr-dark;
   border-right: 0.1em solid $clr-light-grey;
 
   @include large {
@@ -44,10 +45,13 @@
 
   &__title {
     padding: 1.7em;
+
+    @include small {
+      display: none;
+    }
   }
 
   &__navbar {
-
     margin-bottom: 5em;
     border-top: 0.1em solid $clr-light-grey;
     border-bottom: 0.1em solid $clr-light-grey;
@@ -63,7 +67,7 @@
     }
 
     a {
-      font-size: $f-s-480;
+      font-size: $f-s-400;
       letter-spacing: 0.1em;
       color: $clr-white;
 
@@ -84,14 +88,14 @@
 
     @include small {
       flex-direction: row;
+      justify-content: space-around;
+
+      width: 100vw;
+      border-top: 0.1em solid $clr-light-grey;
     }
 
     a {
       border-bottom: 0.1em solid $clr-light-grey;
-
-      @include small {
-        border-bottom: none;
-      }
     }
 
     a:last-child {
@@ -103,12 +107,26 @@
     }
   }
 
+  &__element {
+    @include small {
+      width: 33.3vw;
+      border-right: 0.1em solid $clr-light-grey;
+    }
+    &:last-child {
+      border-right: none;
+    }
+  }
+
   &__social {
     display: flex;
     justify-content: center;
     gap: 0.5em;
 
     padding-bottom: 2em;
+
+    @include small {
+      display: none;
+    }
 
     img {
       width: 2.2em;

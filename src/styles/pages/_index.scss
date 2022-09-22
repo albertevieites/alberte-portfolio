@@ -11,7 +11,8 @@
   padding-left: 2em;
 
   @include small {
-    height: 80vh;
+    height: 0;
+    margin-top: 19em;
     padding-left: 1em;
   }
 
@@ -20,7 +21,12 @@
     font-weight: $f-w-500;
 
     @include small {
-      font-size: $f-s-1700;
+      font-size: $f-s-1500;
+    }
+
+    @include phones {
+      font-size: $f-s-1200;
+      font-weight: $f-w-600;
     }
   }
 }

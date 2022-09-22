@@ -1,5 +1,6 @@
 @use "../abstracts/colors" as *;
 @use "../abstracts/fonts" as *;
+@use "../abstracts/mixins" as *;
 
 .about {
   display: flex;
@@ -12,7 +13,11 @@
 
   font-size: $f-s-400;
 
-  transition: all 300ms;
+  @include small {
+    width: 90vw;
+
+    font-size: $f-s-340;
+  }
 
   p {
     padding-bottom: 2em;

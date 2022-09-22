@@ -1,14 +1,24 @@
 @use "../abstracts/colors" as *;
 @use "../abstracts/fonts" as *;
+@use "../abstracts/mixins" as *;
 
 .details {
   display: flex;
   gap: 3em;
 
-  width: 88vw;
+  width: 100vw;
+  height: 100vh;
   background-color: $clr-white;
 
   color: $clr-dark;
+
+  @include details {
+    align-items: center;
+  }
+
+  @include small {
+    align-items: flex-start;
+  }
 
   &__visual {
     display: flex;
@@ -17,9 +27,21 @@
     padding-top: 10em;
     padding-left: 4em;
 
+    @include details {
+      padding-top: 2em;
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+
     img {
       width: 40vw;
       margin-bottom: 5em;
+
+      @include details {
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 2em;
+      }
     }
 
     a {
@@ -35,9 +57,41 @@
     }
   }
 
+  &__responsive {
+    display: none;
+
+    @include details {
+      display: block;
+    }
+
+    h3 {
+      padding-bottom: 0.5em;
+      padding-left: 1em;
+
+
+      font-size: $f-s-700;
+      font-weight: $f-w-800;
+    }
+
+    p {
+      width: 80vw;
+      margin-left: 1.5em;
+      padding-right: 1.5em;
+      padding-bottom: 2em;
+
+      font-size: $f-s-440;
+      line-height: 1.7em;
+    }
+  }
+
   &__content {
     width: 35vw;
     padding-top: 10em;
+
+    @include details {
+      display: none;
+    }
+
     h3 {
       padding-bottom: 1em;
 
@@ -46,8 +100,21 @@
     }
 
     p {
+      padding-right: 2em;
+
       font-size: $f-s-440;
       line-height: 1.7em;
+    }
+  }
+
+  &__buttons {
+    @include details {
+      display: flex;
+      justify-content: space-evenly;
+      gap: 2em;
+
+      width: 70vw;
+      margin: 0 auto;
     }
   }
 }
