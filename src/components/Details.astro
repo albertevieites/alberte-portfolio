@@ -1,4 +1,13 @@
 ---
+export interface Props {
+  project: string;
+  image: string;
+  alt: string;
+  paragraph: string;
+  github: string;
+  deploy: string;
+}
+
 const { project, image, alt, paragraph, github, deploy } = Astro.props;
 ---
 
