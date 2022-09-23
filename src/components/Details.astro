@@ -4,12 +4,11 @@ export interface Props {
   image: string;
   alt: string;
   paragraph: string;
-  technologies: string[];
   github: string;
   deploy: string;
 }
 
-const { project, image, alt, paragraph, technologies, github, deploy } = Astro.props;
+const { project, image, alt, paragraph, github, deploy } = Astro.props;
 ---
 
   <div class="details">
@@ -18,11 +17,6 @@ const { project, image, alt, paragraph, technologies, github, deploy } = Astro.p
       <div class="details__responsive">
         <h3>{project}</h3>
         <p>{paragraph}</p>
-        <ul>
-          {technologies.map(technology => (
-            <li>{technology}</li>
-          ))}
-        </ul>
       </div>
       <div class="details__buttons">
         <a href={github}>Github</a>
