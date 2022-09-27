@@ -17,10 +17,14 @@
   }
 
   @include small {
+    padding-bottom: 20em;
+
     align-items: flex-start;
+
+    overflow: auto;
   }
 
-  &__visual {
+  &__cover {
     display: flex;
     flex-direction: column;
 
@@ -55,6 +59,15 @@
       text-align: center;
       color: $clr-white;
     }
+  }
+
+  &__technologies {
+    display: flex;
+    flex-wrap: wrap;
+
+    padding-top: 1em;
+
+    font-weight: $f-w-600;
   }
 
   &__responsive {
