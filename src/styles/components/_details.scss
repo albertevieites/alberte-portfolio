@@ -95,6 +95,17 @@
       font-size: $f-s-440;
       line-height: 1.7em;
     }
+
+    &--technologies {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.25em;
+
+      margin-left: 2em;
+      padding-bottom: 2em;
+
+      font-weight: $f-w-600;
+    }
   }
 
   &__content {

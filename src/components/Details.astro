@@ -19,6 +19,11 @@ const { project, image, alt, paragraph, github, deploy, technologies } = Astro.p
       <div class="details__responsive">
         <h3>{project}</h3>
         <p>{paragraph}</p>
+        <div class="details__responsive--technologies">
+          {technologies.map(technology => (
+            <span>{technology}</span>
+          ))}
+        </div>
       </div>
 
       <div class="details__buttons">
