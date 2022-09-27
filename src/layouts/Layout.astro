@@ -21,22 +21,23 @@ const { title } = Astro.props as Props;
       })(window,document,'script','dataLayer','GTM-PBM7SNZ');
     </script>
     <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-    src="https://www.googletagmanager.com/gtag/js?id=G-X9KFVE40BR"
-    >
-    </script>
 
-    <script type="text/partytown">
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'G-X9KFVE40BR');
-    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=G-X9KFVE40BR"></script>
+    <script src="../lib/analytics.js"/>
+
+    <!-- <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-X9KFVE40BR');
+    </script> -->
+
     <title>{title}</title>
   </head>
   <body>
