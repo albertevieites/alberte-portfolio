@@ -2,8 +2,4 @@
 
 body {
   overflow: hidden;
-
-  @include small {
-    overflow: auto;
-  }
 }
