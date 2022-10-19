@@ -13,6 +13,18 @@
 
   mix-blend-mode: screen;
 
+  #target1 {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  #target2 {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  #target3 {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
   @include small {
     height: 0;
     margin-top: 19em;
@@ -23,6 +35,9 @@
     font-size: $f-s-2000;
     font-weight: $f-w-500;
 
+    line-height: 1em;
+
+
     @include small {
       font-size: $f-s-1500;
     }
@@ -31,5 +46,10 @@
       font-size: $f-s-1200;
       font-weight: $f-w-600;
     }
+  }
+
+  .char {
+    transform: translateY(115px);
+    transition: .5s;
   }
 }
