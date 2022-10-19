@@ -13,6 +13,12 @@
 
   transition: all 300ms;
 
+  a {
+    display: block;
+    width: 85vw;
+    text-align: center;
+  }
+
   @include small {
     border-right: none;
   }

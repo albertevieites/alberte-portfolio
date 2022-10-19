@@ -15,3 +15,12 @@ body {
     flex-direction: column;
   }
 }
+
+.transition-fade {
+  transition: .5s;
+  opacity: 1;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
+}
