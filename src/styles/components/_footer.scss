@@ -72,13 +72,6 @@
       color: $clr-white;
 
       transition: all 300ms;
-
-      &:hover,
-      &:focus {
-        background-color: $clr-white;
-
-        color: $clr-dark;
-      }
     }
   }
 
@@ -96,6 +89,12 @@
 
     a {
       border-bottom: 0.1em solid $clr-light-grey;
+    }
+
+    a:hover,
+    a:focus {
+      color: $clr-dark;
+      box-shadow: inset 0 -3.25em 0 0 $clr-white;
     }
 
     a:last-child {

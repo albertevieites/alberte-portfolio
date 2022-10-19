@@ -52,6 +52,11 @@ const { title } = Astro.props as Props;
       gtag("config", "G-X9KFVE40BR");
     </script>
 
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" is:inline></script>
+
+    <!-- swup -->
+    <script src="../../node_modules/swup/dist/swup.min.js" is:inline></script>
     <title>{title}</title>
   </head>
   <body>
@@ -67,9 +72,12 @@ const { title } = Astro.props as Props;
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
     <Header />
-    <main>
+    <main id="swup" class="transition-fade">
       <slot />
     </main>
     <Footer />
+
+    <!-- SCRIPTS -->
+    <script src="../scripts/swup.js"></script>
   </body>
 </html>

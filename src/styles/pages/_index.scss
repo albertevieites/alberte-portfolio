@@ -8,7 +8,10 @@
   justify-content: center;
   gap: 5em;
 
+  height: 100vh;
   padding-left: 2em;
+
+  mix-blend-mode: screen;
 
   @include small {
     height: 0;
