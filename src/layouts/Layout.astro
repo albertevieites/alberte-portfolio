@@ -58,6 +58,9 @@ const { title } = Astro.props as Props;
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" is:inline></script>
 
+		<!-- barba.js -->
+		<script src="../../node_modules/@barba/core"></script>
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
 
@@ -78,12 +81,13 @@ const { title } = Astro.props as Props;
     <!-- End Google Tag Manager (noscript) -->
 
     <Header />
-    <main>
+    <main data-barba="container" >
       <slot/>
     </main>
     <Footer />
 
     <!-- SCRIPTS -->
+		<script src="../scripts/barba.js"></script>
     <script src="../scripts/splitType.js"></script>
   </body>
 </html>

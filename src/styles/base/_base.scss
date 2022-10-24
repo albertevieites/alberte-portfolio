@@ -1,17 +1,56 @@
-@use '../abstracts/colors' as *;
-@use './font-face';
-@use '../abstracts/mixins' as *;
+@use "../abstracts/colors" as *;
+@use "./font-face";
+@use "../abstracts/mixins" as *;
 
 html,
 body {
-  display: flex;
+	display: flex;
 
-  background-color: $clr-dark;
+	background-color: $clr-dark;
 
-  font-family: 'Inter', normal;
-  color: $clr-white;
+	font-family: "Inter", normal;
+	color: $clr-white;
 
-  @include small {
-    flex-direction: column;
-  }
+	@include small {
+		flex-direction: column;
+	}
+
+	/* Page load animation */
+	.home-once {
+		opacity: 0;
+	}
+
+	.home-once-active {
+		transition: opacity 1s linear 0.3s;
+	}
+
+	.home-once-to {
+		opacity: 1;
+	}
+	/* Slide to home */
+
+	// fade transition
+	.fade-leave{
+		opacity: 1;
+	}
+
+	.fade-leave-active {
+		transition: opacity 0.3s linear;
+	}
+
+	.fade-leave-to {
+		opacity: 0;
+	}
+
+	.fade-enter{
+		opacity: 0;
+	}
+
+	.fade-enter-active {
+		transition: opacity 0.3s linear;
+	}
+
+	.fade-enter-to {
+		opacity: 1;
+	}
 }
