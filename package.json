@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^1.0.0",
+    "@barba/core": "^2.9.7",
+    "@barba/css": "^2.1.15",
     "astro": "^1.5.1",
     "astro-seo": "^0.6.0",
     "gsap": "^3.11.3",
