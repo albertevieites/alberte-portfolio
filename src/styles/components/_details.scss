@@ -63,11 +63,22 @@
 
   &__technologies {
     display: flex;
+		justify-content: space-between;
     flex-wrap: wrap;
 
+		width: 100%;
     padding-top: 1em;
 
     font-weight: $f-w-600;
+
+		p {
+			padding: 0 1em;
+			margin-bottom: 1em;
+			border: 0.114em solid $clr-grey;
+
+			text-align: center;
+			color: $clr-grey;
+		}
   }
 
   &__responsive {
@@ -124,8 +135,6 @@
     }
 
     p {
-      padding-right: 2em;
-
       font-size: $f-s-440;
       line-height: 1.7em;
     }
