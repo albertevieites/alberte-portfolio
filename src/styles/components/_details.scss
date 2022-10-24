@@ -6,7 +6,7 @@
   display: flex;
   gap: 3em;
 
-  width: 100vw;
+	padding-right: 1em;
   height: 100vh;
   background-color: $clr-white;
 
@@ -29,7 +29,7 @@
     flex-direction: column;
 
     padding-top: 10em;
-    padding-left: 4em;
+    padding-left: 3em;
 
     @include details {
       padding-top: 2em;
@@ -62,9 +62,9 @@
   }
 
   &__technologies {
-    display: flex;
-		justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 0.5em;
 
 		width: 100%;
     padding-top: 1em;
@@ -76,6 +76,8 @@
 			margin-bottom: 1em;
 			border: 0.114em solid $clr-grey;
 
+			font-size: $f-s-340;
+			font-weight: $f-w-500;
 			text-align: center;
 			color: $clr-grey;
 		}
@@ -98,7 +100,6 @@
     }
 
     p {
-      width: 80vw;
       margin-left: 1.5em;
       padding-right: 1.5em;
       padding-bottom: 2em;
@@ -108,19 +109,29 @@
     }
 
     &--technologies {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+			display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 0.25em;
 
       margin-left: 2em;
       padding-bottom: 2em;
 
       font-weight: $f-w-600;
+
+			span {
+			padding: 0 1em;
+			margin-bottom: 1em;
+			border: 0.114em solid $clr-grey;
+
+			font-size: $f-s-340;
+			font-weight: $f-w-500;
+			text-align: center;
+			color: $clr-grey;
+			}
     }
   }
 
   &__content {
-    width: 35vw;
     padding-top: 10em;
 
     @include details {
@@ -134,7 +145,7 @@
       font-weight: $f-w-800;
     }
 
-    p {
+    p>:first-child {
       font-size: $f-s-440;
       line-height: 1.7em;
     }
