@@ -60,9 +60,14 @@ const { title } = Astro.props as Props;
 
     <!-- swup -->
     <script src="../../node_modules/swup/dist/swup.min.js" is:inline></script>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+
+    <!-- TITLE -->
     <title>{title}</title>
   </head>
-  <body>
+  <body data-barba="wrapper">
     <!-- Google Tag Manager (noscript) -->
     <noscript>
       <iframe
@@ -74,9 +79,10 @@ const { title } = Astro.props as Props;
       </iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
+
     <Header />
     <main id="swup" class="transition-fade">
-      <slot />
+      <slot/>
     </main>
     <Footer />
 
