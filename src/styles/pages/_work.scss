@@ -2,11 +2,9 @@
 
 .work {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(90vw, 1fr));
-  justify-content: center;
 
   @include small {
     min-width: 100%;
-    min-height: 50vh;
+    min-height: 60vh;
   }
 }
