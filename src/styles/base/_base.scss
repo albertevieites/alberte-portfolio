@@ -29,28 +29,103 @@ body {
 	}
 	/* Slide to home */
 
-	// fade transition
-	.fade-leave{
+	// About page transition
+	.about-leave{
 		opacity: 1;
 	}
 
-	.fade-leave-active {
+	.about-leave-active {
 		transition: opacity 0.3s linear;
 	}
 
-	.fade-leave-to {
+	.about-leave-to {
 		opacity: 0;
 	}
 
-	.fade-enter{
+	.about-enter{
 		opacity: 0;
 	}
 
-	.fade-enter-active {
+	.about-enter-active {
 		transition: opacity 0.3s linear;
 	}
 
-	.fade-enter-to {
+	.about-enter-to {
+		opacity: 1;
+	}
+
+	// Work page transition
+	.work-leave{
+		opacity: 1;
+	}
+
+	.work-leave-active {
+		transition: opacity 0.3s linear;
+	}
+
+	.work-leave-to {
+		opacity: 0;
+	}
+
+	.work-enter{
+		opacity: 0;
+	}
+
+	.work-enter-active {
+		transition: opacity 0.3s linear;
+	}
+
+	.work-enter-to {
+		opacity: 1;
+	}
+
+	// Contact page transition
+	.contact-leave{
+		opacity: 1;
+	}
+
+	.contact-leave-active {
+		transition: opacity 0.3s linear;
+	}
+
+	.contact-leave-to {
+		opacity: 0;
+	}
+
+	.contact-enter{
+		opacity: 0;
+	}
+
+	.contact-enter-active {
+		transition: opacity 0.3s linear;
+	}
+
+	.contact-enter-to {
+		opacity: 1;
+	}
+
+	// Details page transition
+	.details-leave{
+		opacity: 1;
+	}
+
+	.details-leave-active {
+		transition: opacity 0.3s linear;
+	}
+
+	.details-leave-to {
+		opacity: 0;
+	}
+
+	.details-enter{
+		opacity: 0;
+	}
+
+	.details-enter-active {
+		transition: opacity 0.3s linear;
+	}
+
+	.details-enter-to {
 		opacity: 1;
 	}
 }

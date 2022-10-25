@@ -20,9 +20,33 @@ barba.init({
 			},
 		},
 		{
-			name: "fade",
+			name: "about",
 			to: {
-				namespace: ["fade"],
+				namespace: ["about"],
+			},
+			leave() {},
+			enter() {},
+		},
+		{
+			name: "work",
+			to: {
+				namespace: ["work"],
+			},
+			leave() {},
+			enter() {},
+		},
+		{
+			name: "contact",
+			to: {
+				namespace: ["contact"],
+			},
+			leave() {},
+			enter() {},
+		},
+		{
+			name: "details",
+			to: {
+				namespace: ["details"],
 			},
 			leave() {},
 			enter() {},
