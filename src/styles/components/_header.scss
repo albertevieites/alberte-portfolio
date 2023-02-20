@@ -10,10 +10,6 @@
   width: 20vw;
   border-right: 0.1em solid $clr-light-grey;
 
-  @include desktop {
-    max-width: 15em;
-  }
-
   @include small {
     flex-direction: row;
     align-items: center;
