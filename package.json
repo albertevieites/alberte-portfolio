@@ -10,16 +10,16 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^1.0.0",
-    "@astrojs/vercel": "^2.3.1",
+    "@astrojs/vercel": "^3.0.0",
     "@barba/core": "^2.9.7",
     "@barba/css": "^2.1.15",
-    "astro": "^1.5.2",
-    "astro-seo": "^0.6.0",
-    "gsap": "^3.11.3"
+    "astro": "^2.0.0",
+    "astro-seo": "^0.7.0",
+    "gsap": "^3.11.4"
   },
   "devDependencies": {
-    "@astrojs/image": "^0.10.0",
-    "astro-robots-txt": "^0.3.10",
-    "sass": "^1.55.0"
+    "@astrojs/image": "^0.13.0",
+    "astro-robots-txt": "^0.3.11",
+    "sass": "^1.57.1"
   }
 }
