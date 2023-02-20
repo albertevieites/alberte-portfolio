@@ -7,6 +7,7 @@
   justify-content: center;
   align-items: center;
 
+	width: 100%;
   border-top: 0.1em solid $clr-light-grey;
   border-bottom: 0.1em solid $clr-light-grey;
   border-right: 0.1em solid $clr-light-grey;
@@ -14,8 +15,7 @@
   transition: all 300ms;
 
   a {
-    display: block;
-    width: 85vw;
+    width: 40vw;
     text-align: center;
   }
 
