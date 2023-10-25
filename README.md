@@ -1,8 +1,9 @@
-## Description
+# Description
+
 This is a project using Astro as a static single generator.
 Inside of this project, you'll see the following folders and files:
 
-```
+```markdown
 PROJECT_ROOT
 ├── public
 │   ├── fonts
@@ -21,12 +22,12 @@ PROJECT_ROOT
 ```
 
 ## Autor
+
 **Alberte Vieites**
 
-* [LinkedIn](https://www.linkedin.com/in/albertevieites)
-* [Portfolio](http://www.albertevieites.com/)
+- [LinkedIn](https://www.linkedin.com/in/albertevieites)
+- [Portfolio](http://www.albertevieites.com/)
 
 ## Deployment
-<a href="https://alberte-portfolio.vercel.app/">
-  <img height="30" src="./public/images/vercel-icon-dark.svg"/>
-</a>
+
+[![Deploy with Vercel](https://vercel.com/button)](https://alberte-portfolio.vercel.app)
