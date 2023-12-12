@@ -1,8 +1,9 @@
 ---
-const { project, url } = Astro.props;
+const { name, link } = Astro.props;
 ---
-  <div class="card">
-    <a href={url}>
-      <h2>{project}</h2>
-    </a>
-  </div>
+
+<div class="card">
+  <a href={link}>
+    <h2>{name}</h2>
+  </a>
+</div>

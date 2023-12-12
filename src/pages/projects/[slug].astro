@@ -1,0 +1,44 @@
+---
+import { projectsData } from "../../data/projects";
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return projectsData.map((project) => ({
+    params: { slug: project.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const projectData = projectsData.find((project) => project.slug === slug);
+if (!projectData) return Astro.redirect("/404");
+
+const { name, image, alt, paragraph, github, deploy, technologies } =
+  projectData;
+---
+
+<div class="details" data-barba="container" data-barba-namespace="details">
+  <div class="details__cover">
+    <img src={image} alt={alt} />
+    <div class="details__responsive">
+      <h3>{name}</h3>
+      <p>{paragraph}</p>
+      <div class="details__responsive--technologies">
+        {technologies.map((technology) => <span>{technology}</span>)}
+      </div>
+    </div>
+
+    <div class="details__buttons">
+      <a href={github}>Github</a>
+      <a href={deploy}>Deployment</a>
+    </div>
+  </div>
+
+  <div class="details__content">
+    <h3>{name}</h3>
+    <p>{paragraph}</p>
+    <div class="details__technologies">
+      {technologies.map((technology) => <p>{technology}</p>)}
+    </div>
+  </div>
+</div>
