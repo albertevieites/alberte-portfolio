@@ -1,14 +1,15 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "types": [
-      "@astrojs/image/client"
-    ],
-    "jsx": "react-jsx",
-    "jsxImportSource": "react"
-  }
+	"compilerOptions": {
+		"allowJs": true,
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"types": [
+			"@astrojs/client"
+		],
+		"jsx": "react-jsx",
+		"jsxImportSource": "react"
+	}
 }

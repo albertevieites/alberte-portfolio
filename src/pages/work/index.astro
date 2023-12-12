@@ -1,0 +1,21 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
+
+import { projectsData } from "../../data/projects";
+
+import "../../styles/style.scss";
+---
+
+<Layout title="Work">
+  <div class="work" data-barba="container" data-barba-namespace="work">
+    {
+      projectsData.map((project) => (
+        <Card
+          name={project.name}
+          link={`/projects/${project.slug}`}
+        />
+      ))
+    }
+  </div>
+</Layout>
