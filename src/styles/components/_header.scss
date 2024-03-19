@@ -1,110 +1,16 @@
 @use "../abstracts/colors" as *;
-@use "../abstracts/fonts" as *;
-@use "../abstracts/mixins" as *;
 
 .header {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+	position: fixed;
+	top: 0;
+	left: 0;
 
-  width: 20vw;
-  border-right: 0.1em solid $clr-light-grey;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	justify-content: center;
+	align-items: center;
 
-  @include small {
-    flex-direction: row;
-    align-items: center;
-    width: 100vw;
-    border-right: none;
-  }
-
-  h3 {
-    padding-bottom: 0.7em;
-
-    font-size: $f-s-600;
-    font-weight: $f-w-800;
-    line-height: 1.1em;
-  }
-
-  span {
-    font-size: $f-s-400;
-    font-weight: $f-w-400;
-    line-height: 1.1em;
-    color: $clr-light-grey;
-  }
-
-  &__title {
-    padding: 1em;
-
-    @include small {
-      width: 25vw;
-    }
-  }
-
-  &__navbar {
-    margin-bottom: 5em;
-    border-top: 0.1em solid $clr-light-grey;
-    border-bottom: 0.1em solid $clr-light-grey;
-
-    text-align: center;
-
-    @include small {
-      display: none;
-    }
-
-    a {
-      font-size: $f-s-400;
-      letter-spacing: 0.1em;
-    }
-  }
-
-  &__list {
-    display: flex;
-    flex-direction: column;
-
-    a {
-      display: block;
-      border-bottom: 0.1em solid $clr-light-grey;
-
-      background: linear-gradient(to right, $clr-white 50%, $clr-dark 50%);
-      background-size: 200% 100%;
-      background-position: right bottom;
-      transition: all 0.5s ease-out;
-    }
-
-    a:hover {
-      background-position: left bottom;
-    }
-
-    .btn:hover {
-      color: $clr-dark;
-    }
-
-    a:last-child {
-      border-bottom: 0;
-    }
-
-    a > li {
-      padding: 1em 0;
-    }
-  }
-
-  &__social {
-    display: flex;
-    justify-content: center;
-    gap: 0.5em;
-
-    padding-bottom: 2em;
-
-    @include small {
-      gap: 1em;
-      padding-right: 1em;
-      padding-bottom: 0;
-    }
-
-    img {
-      width: 2.2em;
-
-      color: $clr-white;
-    }
-  }
+	width: 100%;
+	padding: 3rem;
+	transition: background-color 0.3s;
 }

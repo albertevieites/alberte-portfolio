@@ -3,104 +3,93 @@
 @use "../abstracts/mixins" as *;
 
 .contact {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	align-content: center;
 
-  width: 35em;
-  padding-left: 2em;
+	width: 80vw;
+	height: 100vh;
+	margin-left: auto;
+	margin-right: auto;
 
-  @include small {
-    width: 100vw;
-    margin-top: 2em;
-    padding-left: 1em;
-  }
+	color: $clr-warm-text;
 
-  h3 {
-    padding-bottom: 1.7em;
-    font-size: $f-s-800;
-    font-weight: $f-w-600;
+	&__content {
+		grid-column: span 2;
 
-    @include small {
-      padding-bottom: 0.2em;
-    }
-  }
+		padding: 2rem;
+		border-top: solid 2px $clr-warm-text;
+		border-bottom: solid 2px $clr-warm-text;
 
-  &__data {
-    display: flex;
+		span {
+			display: block;
 
-    @include small {
-      flex-direction: column;
-      gap: 1em;
+			width: 70%;
+		}
+	}
 
-      width: 95%;
-    }
-    input {
-      width: 100%;
-      padding: 1.1em 0 1.1em 1em;
-      margin-right: 2em;
-      background-color: $clr-medium-dark;
+	&__title {
+		padding-bottom: 0.7rem;
 
-      font-size: $f-s-340;
-    }
+		font-size: 2.7rem;
+		font-weight: 600;
+		font-style: italic;
+	}
 
-    ::placeholder {
-      color: $clr-light-grey;
-    }
-  }
+	&__subtitle {
+		font-size: 1.3rem;
+		font-weight: 300;
+	}
 
-  &__subject {
+	&__email,
+	&__linkedin {
+		// Hover animations
+		background-color: transparent;
+		background-image: linear-gradient(
+			to top,
+			$clr-warm-text 0%,
+			$clr-warm-text 100%
+		);
+		background-size: 100% 0;
+		background-repeat: no-repeat;
+		background-position: 0 100%;
+		transition: background-size 0.3s ease-out, background-position 0s 0.3s;
 
-    input {
-      padding: 1.1em 0em 1.1em 1em;
-      width: 95%;
-      margin-top: 2em;
-      background-color: $clr-medium-dark;
+		&:hover {
+			background-size: 100% 100%;
+			background-position: 0% 0%;
 
-      font-size: $f-s-340;
-    }
+			color: $clr-bk;
+		}
+	}
 
-    ::placeholder {
-      color: $clr-light-grey;
-    }
-  }
+	&__email {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
-  &__message {
-    margin-top: 2em;
-    margin-bottom: 2em;
+		border-top: solid 2px $clr-warm-text;
+		border-bottom: solid 2px $clr-warm-text;
+		border-left: solid 2px $clr-warm-text;
+		border-right: solid 2px $clr-warm-text;
 
-    textarea {
-      width: 95%;
-      height: 9em;
-      padding-top: 1.1em;
-      padding-left: 1.1em;
-      background-color: $clr-medium-dark;
+		svg {
+			width: 2rem;
+			height: fit-content;
+			padding: .7rem;
+		}
+	}
 
-      font-size: $f-s-340;
-    }
+	&__linkedin {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
-    ::placeholder {
-      color: $clr-light-grey;
-    }
-  }
+		border-top: solid 2px $clr-warm-text;
+		border-bottom: solid 2px $clr-warm-text;
+		border-right: solid 2px $clr-warm-text;
 
-  &__button {
-    width: 13em;
-    margin-top: 2em;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    background-color: $clr-white;
-
-    @include phones {
-      width: 95%;
-    }
-
-    input {
-      margin: 0 auto;
-
-      font-size: $f-s-380;
-      font-weight: $f-w-800;
-      color: $clr-dark;
-    }
-  }
+		font-size: 1.5rem;
+		font-weight: 600;
+	}
 }
