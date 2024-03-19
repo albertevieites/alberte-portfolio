@@ -1,70 +1,27 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 
 import "../../styles/style.scss";
 ---
 
 <Layout title="Contact">
-  <div class="contact" data-barba="container" data-barba-namespace="contact">
-    <form
-      id="form"
-      name="contact"
-      action="https://api.web3forms.com/submit"
-      method="POST"
-    >
-      <h3 class="contact__title">Contact me</h3>
+	<div class="contact">
+		<div class="contact__content">
+			<span class="contact__title">GOT A PROJECT IN MIND? LET'S DISCUSS.</span>
+			<span class="contact__subtitle">
+				I'm always looking for problems to solve and new partners to collaborate
+				with. Drop me a message to chat.
+			</span>
+		</div>
 
-      <input
-        type="hidden"
-        name="access_key"
-        value="8120b10c-514e-48af-88ed-f7830d8d79f4"
-      />
+		<a class="contact__email" href="mailto:albertevieites@gmail.com">
+			albertevieites@gmail.com
+		</a>
 
-      <div class="contact__data">
-        <label for="name"></label>
-        <input type="text" name="name" placeholder="Full Name" required />
-
-        <label for="email"></label>
-        <input type="email" name="name" placeholder="Email" required />
-      </div>
-
-      <div class="contact__subject">
-        <label for="subject"></label>
-        <input type="text" name="subject" placeholder="Subject" required />
-      </div>
-
-      <div class="contact__message">
-        <label for="message"></label>
-        <textarea name="message" placeholder="Message" required></textarea>
-      </div>
-
-      <input
-        type="hidden"
-        name="redirect"
-        value="https://web3forms.com/success"
-      />
-
-      <!-- <div class="h-captcha" data-captcha="true"></div> -->
-
-      <div class="contact__button">
-        <input type="submit" value="Drop me a message!" />
-      </div>
-    </form>
-  </div>
+		<a
+			class="contact__linkedin"
+			href="https://www.linkedin.com/in/albertevieites/">LINKEDIN</a
+		>
+	</div>
 </Layout>
-
-<script src="https://web3forms.com/client/script.js" async defer>
-  const form = document.getElementById("form");
-
-  form.addEventListener("submit", function (e) {
-    const hCaptcha = form.querySelector(
-      "textarea[name=h-captcha-response]"
-    ).value;
-
-    if (!hCaptcha) {
-      e.preventDefault();
-      alert("Please fill out captcha field");
-      return;
-    }
-  });
-</script>

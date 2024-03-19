@@ -1,0 +1,22 @@
+---
+import Card from "../../components/Card.astro";
+import { DataProjects } from "../../data/data_projects";
+
+const sortedDataProjects = DataProjects.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+---
+
+<div class="data">
+  <div class="data__title">
+    <h4>data</h4>
+  </div>
+  {
+    sortedDataProjects.map((project) => (
+      <Card
+        name={project.name}
+        description={project.description}
+        github={project.github}
+        link={`/projects/${project.slug}`}
+      />
+    ))
+  }
+</div>

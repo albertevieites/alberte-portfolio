@@ -1,9 +1,14 @@
-@use "../abstracts/mixins" as *;
-
-body {
-  overflow: hidden;
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
-main {
-  display: flex;
+.project-details-enter {
+  animation: slideInFromRight 0.5s ease forwards;
 }

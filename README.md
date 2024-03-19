@@ -13,7 +13,7 @@ PROJECT_ROOT
 │ ├── components
 | | ├── Cards.astro
 │ | ├── Footer.astro
-| | └── Header.astro
+| | └── Navbar.astro
 │ ├── data
 | | └── projects.js
 │ ├── layouts

@@ -1,0 +1,44 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/fonts" as *;
+@use "../abstracts/mixins" as *;
+
+.brand {
+	position: relative;
+	flex: 1;
+	display: flex;
+	align-items: center;
+
+	font-family: "Rosario";
+	font-weight: 200;
+	color: $clr-warm-text;
+
+	&__h2,
+	&__img {
+		position: absolute;
+		transition: opacity 0.5s, visibility 0.5s;
+	}
+
+	&__h2 {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	&__img {
+		opacity: 0;
+		visibility: hidden;
+		width: 3rem; // Tamaño específico para la imagen
+		height: auto;
+	}
+}
+
+// Añade las reglas para cuando se ha hecho scroll
+.scrolled .brand__h2 {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.scrolled .brand__img {
+	// Cambia a 'block' para hacer la imagen visible durante la transición
+	opacity: 1;
+	visibility: visible;
+}

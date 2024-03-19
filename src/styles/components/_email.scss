@@ -1,0 +1,15 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/fonts" as *;
+@use "../abstracts/mixins" as *;
+
+.email {
+	display: flex;
+	justify-content: flex-end;
+	flex: 1;
+
+	svg {
+		width: 2rem;
+		height: auto;
+		fill: $clr-warm-text;
+	}
+}
