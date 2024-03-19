@@ -4,6 +4,7 @@ import { defineConfig } from "astro/config";
 import vercel from "@astrojs/vercel/serverless";
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
+import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 import react from "@astrojs/react";
