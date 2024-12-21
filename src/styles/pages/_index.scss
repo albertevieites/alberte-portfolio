@@ -3,48 +3,46 @@
 @use "../abstracts/mixins" as *;
 
 .landing {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
 	align-content: center;
 
 	width: 80vw;
 	height: 100vh;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 0 auto;
 	overflow: hidden;
-
-	span {
-		font-family: "Rosario", serif;
-		font-size: 4.7rem;
-		font-weight: 800;
-		color: $clr-warm-text;
-
-		line-height: 1;
-		margin-bottom: 0;
-	}
 
 	&__top,
 	&__bottom {
+		display: grid;
+		grid-template-columns: 1fr;
 		grid-column: 1 / -1;
+
+		span {
+			font-size: $step-0;
+			font-weight: 800;
+			color: $clr-warm-text;
+		}
 	}
 
 	&__top {
 		grid-column: span 2;
-		margin-bottom: 2rem;
 	}
 
 	&__middle {
-		grid-column: 1 / -1;
-
 		display: flex;
-		align-items: center;
 		justify-content: space-between;
 
 		padding: 3rem 0;
 		background: linear-gradient(to right, #4d5365, #4e6650);
 
+		@include phones {
+			flex-direction: column;
+      align-items: center;
+
+      padding: 1rem 0;
+		}
+
 		span {
-			font-size: 2.7rem;
+			font-size: $step--3;
 			font-weight: 600;
 
 			margin: 0 2rem;
@@ -55,8 +53,6 @@
 		grid-column-start: 3;
 		grid-column-end: 5;
 		grid-row: 3;
-
-		margin-top: 2rem;
 
 		text-align: end;
 	}

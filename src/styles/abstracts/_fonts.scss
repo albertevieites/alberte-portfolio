@@ -38,3 +38,14 @@ $f-w-600: 600;
 $f-w-700: 700;
 $f-w-800: 800;
 $f-w-900: 900;
+
+// CLAMP
+$step--3: clamp(1.5rem, 1rem + 1.413vw, 2.6875rem);
+$step--2: clamp(2.0833rem, 1.7645rem + 1.5942vw, 3rem);
+$step--1: clamp(2.5rem, 2.0652rem + 2.1739vw, 3.75rem);
+$step-0: clamp(3rem, 2.413rem + 2.9348vw, 4.6875rem);
+$step-1: clamp(3.6rem, 2.8141rem + 3.9293vw, 5.8594rem);
+$step-2: clamp(4.32rem, 3.2751rem + 5.2247vw, 7.3242rem);
+$step-3: clamp(5.184rem, 3.8027rem + 6.9066vw, 9.1553rem);
+$step-4: clamp(6.2208rem, 4.404rem + 9.084vw, 11.4441rem);
+$step-5: clamp(7.465rem, 5.0858rem + 11.8959vw, 14.3051rem);
