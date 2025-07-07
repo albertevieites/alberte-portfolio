@@ -12,14 +12,17 @@
 		"preview": "astro preview"
 	},
 	"dependencies": {
+		"@astrojs/mdx": "^4.3.0",
 		"@astrojs/partytown": "^2.1.4",
 		"@astrojs/react": "^4.3.0",
 		"@astrojs/sitemap": "^3.4.1",
 		"@astrojs/vercel": "^8.2.1",
+		"@parcel/watcher": "^2.5.1",
 		"@types/react": "^19.1.8",
 		"@types/react-dom": "^19.1.6",
 		"astro": "^5.11.0",
 		"astro-seo": "^0.8.4",
+		"esbuild": "^0.25.5",
 		"locomotive-scroll": "^4.1.4",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
@@ -29,5 +32,6 @@
 		"@types/locomotive-scroll": "^4.1.4",
 		"astro-robots-txt": "^1.0.0",
 		"sass": "^1.89.2"
-	}
+	},
+	"packageManager": "pnpm@10.12.4+sha256.cadfd9e6c9fcc2cb76fe7c0779a5250b632898aea5f53d833a73690c77a778d9"
 }

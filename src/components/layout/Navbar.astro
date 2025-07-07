@@ -1,0 +1,49 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.endsWith("/")
+	? pathname.slice(1, -1)
+	: pathname.slice(1);
+---
+
+<nav class="navbar">
+	<ul class="navbar__list">
+		<a href="/about">
+			<li
+				class={`navbar__item ${currentPath === "about" ? "navbar__item--active" : ""}`}
+			>
+				About
+			</li>
+		</a>
+		<a href="/work">
+			<li
+				class={`navbar__item ${currentPath === "work" ? "navbar__item--active" : ""}`}
+			>
+				Work
+			</li>
+		</a>
+		<a href="/contact">
+			<li
+				class={`navbar__item ${currentPath === "contact" ? "navbar__item--active" : ""}`}
+			>
+				Contact
+			</li>
+		</a>
+	</ul>
+</nav>
+
+<script>
+	document.querySelectorAll(".navbar__item").forEach((item: Element) => {
+		item.addEventListener("click", function (this: HTMLElement) {
+			// Encuentra el elemento anteriormente activo y elimina su clase activa
+			const activeItem = document.querySelector(".navbar__item--active");
+			if (activeItem) {
+				activeItem.classList.remove("navbar__item--active");
+			}
+
+			// Agrega la clase activa al elemento actualmente clickeado
+			this.classList.add("navbar__item--active");
+
+			// No es necesario mover la línea con JS si utilizas transiciones CSS como se muestra arriba
+		});
+	});
+</script>

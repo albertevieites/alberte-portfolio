@@ -1,0 +1,186 @@
+---
+import { Image } from "astro:assets";
+import { getCollection, getEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/style.scss";
+
+export const prerender = true;
+
+// Define the feature type directly based on our schema
+type Feature = {
+	title: string;
+	description: string;
+};
+
+export async function getStaticPaths() {
+	const webProjects = await getCollection("web-projects");
+	const dataProjects = await getCollection("data-projects");
+	const projects = [...webProjects, ...dataProjects];
+
+	return projects.map((project) => ({
+		params: { id: project.id },
+		props: { collection: project.collection },
+	}));
+}
+
+type Props = {
+	collection: "web-projects" | "data-projects";
+};
+
+const { id } = Astro.params;
+const { collection } = Astro.props;
+
+const project = await getEntry(collection, id);
+
+// ✨ AÑADIDO: Comprobación para manejar el caso en que el proyecto no exista
+if (!project) {
+  return Astro.redirect("/404");
+}
+
+const { data: projectData } = project;
+---
+
+<Layout title={projectData.name}>
+	<div
+		class="project"
+		data-background-color={projectData.backgroundColor}
+		data-navbar-color={projectData.navbarColor}
+		data-is-light-theme={projectData.isLightTheme}
+	>
+		<div class="project__content">
+			<div class="project__content--item project__content--title">
+				<h2>{projectData.name}</h2>
+				<p>{projectData.description}</p>
+			</div>
+			<div class="project__content--item project__content--description">
+				<div class="project__content--buttons">
+					<a href={projectData.github}>Github</a>
+					{projectData.deploy && <a href={projectData.deploy}>Deployment</a>}
+				</div>
+				<p>{projectData.overview}</p>
+			</div>
+		</div>
+
+		{
+			projectData.image_1 && (
+				<figure class="project__firstimage">
+					<Image
+						src={projectData.image_1}
+						alt={projectData.alt_1}
+						width={1200}
+						height={800}
+						format="webp"
+						quality={85}
+						loading="eager"
+					/>
+					<figcaption>{projectData.alt_1}</figcaption>
+				</figure>
+			)
+		}
+
+		<section class="project__features">
+			{
+				projectData.features.map((feature: Feature) => (
+					<article class="project__features--card">
+						<header>
+							<h3>{feature.title}</h3>
+						</header>
+						<div>
+							<p>{feature.description}</p>
+						</div>
+					</article>
+				))
+			}
+		</section>
+
+		{
+			projectData.image_2 && projectData.alt_2 && (
+				<figure class="project__secondimage">
+					<Image
+						src={projectData.image_2}
+						alt={projectData.alt_2}
+						width={1200}
+						height={800}
+						format="webp"
+						quality={85}
+						loading="lazy"
+					/>
+					<figcaption>{projectData.alt_2}</figcaption>
+				</figure>
+			)
+		}
+
+		<div class="project__conclusion">
+			<p>{projectData.conclusion}</p>
+		</div>
+
+		<div class="project__cta">
+			<a href={projectData.github}>Contribute to project</a>
+			<a href="/work" class="btn btn-secondary">Back to Projects</a>
+		</div>
+
+		<div class="project__footer">
+			<p>&copy; 2025 by Alberte Vieites. All Rights Reserved.</p>
+			<p>Special thanks to all contributors and collaborators.</p>
+		</div>
+	</div>
+</Layout>
+
+<script>
+	function updateOnScroll() {
+		const projectElement = document.querySelector(".project") as HTMLElement;
+		if (!projectElement) return;
+
+		const projectBackgroundColor = projectElement.dataset.backgroundColor || "";
+		const projectNavbarColor = projectElement.dataset.navbarColor || "";
+		const isLightTheme = projectElement.dataset.isLightTheme === "true";
+
+		const htmlElement = document.documentElement;
+		const bodyElement = document.body;
+		const navbarElement = document.querySelector(".navbar") as HTMLElement;
+		const svgElements = document.querySelectorAll(".social svg");
+
+		const scrollTop = document.documentElement.scrollTop;
+
+		if (scrollTop > 50) {
+			if (projectBackgroundColor) {
+				htmlElement.style.backgroundColor = projectBackgroundColor;
+				bodyElement.style.backgroundColor = projectBackgroundColor;
+			}
+			if (navbarElement && projectNavbarColor) {
+				navbarElement.style.backgroundColor = projectNavbarColor;
+			}
+			svgElements.forEach((svg) => {
+				const svgElement = svg as HTMLElement;
+				if (projectBackgroundColor) {
+					svgElement.style.fill = projectBackgroundColor;
+				}
+			});
+			if (isLightTheme) {
+				bodyElement.classList.add("theme-inverted");
+			}
+		} else {
+			htmlElement.style.backgroundColor = "";
+			bodyElement.style.backgroundColor = "";
+			if (navbarElement) {
+				navbarElement.style.backgroundColor = "";
+			}
+			svgElements.forEach((svg) => {
+				const svgElement = svg as HTMLElement;
+				svgElement.style.fill = "";
+			});
+			bodyElement.classList.remove("theme-inverted");
+		}
+	}
+
+	document.addEventListener("astro:page-load", () => {
+		if (typeof window !== "undefined") {
+			updateOnScroll();
+			window.addEventListener("scroll", updateOnScroll);
+		}
+	});
+
+	document.addEventListener("astro:before-swap", () => {
+		window.removeEventListener("scroll", updateOnScroll);
+	});
+</script>
