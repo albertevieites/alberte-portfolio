@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+import Card from "@components/ui/Card.astro";
+
+const dataProjectsCollection = await getCollection("data-projects");
+
+const sortedDataProjects = dataProjectsCollection.sort(
+	(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<div class="data">
+	<div class="data__title">
+		<h4>data</h4>
+	</div>
+	{
+		sortedDataProjects.map((project) => (
+			<Card
+				name={project.data.name}
+				description={project.data.description}
+				github={project.data.github}
+				href={`/projects/${project.id}`}
+			/>
+		))
+	}
+</div>

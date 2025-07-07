@@ -10,5 +10,44 @@ body {
 	font-family: "Rosario", sans-serif;
 }
 
+body.theme-inverted {
+  .project {
+    // Usamos tu variable para el texto oscuro
+    color: $clr-dark-text;
 
+    // Aseguramos que todos los elementos hereden el color oscuro
+    h2, h3, p, figcaption, a {
+      color: $clr-dark-text;
+    }
 
+    // Actualizamos los bordes y el fondo de los botones para el tema claro
+    .project__content--buttons a,
+    .project__cta a {
+      border-color: $clr-dark-text;
+      background-image: linear-gradient(
+        to right,
+        $clr-dark-text 0%,
+        $clr-dark-text 100%
+      );
+
+      &:hover {
+        color: $clr-white; // Al pasar el ratón, el texto será blanco
+      }
+    }
+
+    .project__features {
+      border-color: $clr-dark-text;
+    }
+  }
+
+	.navbar {
+    // Cambiamos el color principal del texto a oscuro
+    color: $clr-dark-text;
+
+    // Nos aseguramos de que la línea inferior también cambie de color
+    .navbar__item::after,
+    .navbar__item--active::after {
+      background-color: $clr-dark-text;
+    }
+  }
+}

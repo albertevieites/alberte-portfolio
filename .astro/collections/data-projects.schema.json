@@ -1,0 +1,104 @@
+{
+  "$ref": "#/definitions/data-projects",
+  "definitions": {
+    "data-projects": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "date": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "integer",
+              "format": "unix-time"
+            }
+          ]
+        },
+        "isLightTheme": {
+          "type": "boolean"
+        },
+        "overview": {
+          "type": "string"
+        },
+        "conclusion": {
+          "type": "string"
+        },
+        "image_1": {
+          "type": "string"
+        },
+        "alt_1": {
+          "type": "string"
+        },
+        "image_2": {
+          "type": "string"
+        },
+        "alt_2": {
+          "type": "string"
+        },
+        "github": {
+          "type": "string",
+          "format": "uri"
+        },
+        "deploy": {
+          "type": "string",
+          "format": "uri"
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "title",
+              "description"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "backgroundColor": {
+          "type": "string"
+        },
+        "navbarColor": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "description",
+        "date",
+        "overview",
+        "conclusion",
+        "image_1",
+        "alt_1",
+        "github",
+        "features",
+        "backgroundColor",
+        "navbarColor"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,14 +1,17 @@
 ---
+import { getCollection } from "astro:content";
+import Data from "@components/features/work/Data.astro";
+import Web from "@components/features/work/Web.astro";
 import Layout from "../../layouts/Layout.astro";
-import Web from "../../components/Work/Web.astro";
-import Data from "../../components/Work/Data.astro";
-
 import "../../styles/style.scss";
+
+const webProjects = await getCollection("web-projects");
+const dataProjects = await getCollection("data-projects");
 ---
 
 <Layout title="Work">
-  <div class="work__container">
-		<Data />
-    <Web />
-  </div>
+	<div class="work__container">
+		<Web webProjects={webProjects} />
+		<Data dataProjects={dataProjects} />
+	</div>
 </Layout>
