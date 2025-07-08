@@ -1,34 +1,50 @@
 ---
-import { Image } from "astro:assets";
-
-import GithubIcon from "../../assets/logos/github.svg";
+import ExternalLinkIcon from "../../assets/icons/external-link.svg";
+import GithubLogo from "../../assets/logos/github.svg";
 
 interface Props {
 	href: string;
 	name: string;
 	description: string;
 	github: string;
+	isPrivate?: boolean;
 }
 
-const { href, name, description, github } = Astro.props;
+const { href, name, description, github, isPrivate } = Astro.props;
 ---
 
 <div class="card">
-		<div class="card__info">
-			<h4>{name}</h4>
-			<p>{description}</p>
-		</div>
-		<div class="card__links">
-			<a
-				href={github}
-				target="_blank"
-				rel="noopener noreferrer"
-				class="card__links--github"
-			>
-				<GithubIcon width={27} height={27} fill="currentColor" />
-			</a>
-			<a href={href} class="card__links--details">
-				<span>Project Details</span>
-			</a>
-		</div>
+	<div class="card__info">
+		<h4>{name}</h4>
+		<p>{description}</p>
+	</div>
+	<div class="card__links">
+		{
+			isPrivate ? (
+				<div class="card__links--github card__links--private">
+					<GithubLogo width={17} height={17} fill="currentColor" class="icon" />
+					<span class="tooltiptext">
+						This repository is private due to a client agreement.
+					</span>
+				</div>
+			) : (
+				<a
+					href={github}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="card__links--github"
+				>
+					<GithubLogo width={17} height={17} fill="currentColor" class="icon" />
+				</a>
+			)
+		}
+		<a href={href} class="card__links--details">
+			<ExternalLinkIcon
+				width={17}
+				height={17}
+				fill="currentColor"
+				class="icon icon__details"
+			/>
+		</a>
+	</div>
 </div>

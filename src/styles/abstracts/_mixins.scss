@@ -1,25 +1,172 @@
-@mixin phones {
-	@media (max-width: 520px) {
-		@content;
+@use "sass:map";
+@use "sass:meta";
+@use "sass:math";
+@use "breakpoints" as bp;
+
+// --- Mixin para Media Queries (min-width) ---
+// Aplica estilos DESDE un breakpoint específico HACIA ARRIBA.
+// Acepta una clave del map $breakpoints (ej. 'md') o un valor numérico directo (ej. 600px).
+@mixin respond-above($breakpoint) {
+	$value: null; // Variable para almacenar el ancho del breakpoint
+
+	// Comprueba si el argumento es una clave válida en el map $breakpoints
+	@if map.has-key(bp.$breakpoints, $breakpoint) {
+		$value: map.get(bp.$breakpoints, $breakpoint);
+	}
+	// Comprueba si es un número (con o sin unidades)
+	@else if meta.type-of($breakpoint) == number {
+		// Añade 'px' si es un número sin unidad, si no, usa el valor con su unidad (em, rem, px)
+		$value: if(math.is-unitless($breakpoint), $breakpoint * 1px, $breakpoint);
+	}
+	// Si no es ni clave válida ni número, muestra un error
+	@else {
+		@error "Breakpoint inválido: `#{$breakpoint}`. Debe ser una clave de $breakpoints (#{map.keys(bp.$breakpoints)}) o un valor numérico.";
+	}
+
+	// Si encontramos un valor válido, generamos la media query
+	@if $value {
+		@media (min-width: $value) {
+			@content; // Aquí se insertará el bloque de código CSS que pases al usar @include
+		}
 	}
 }
-@mixin small {
-	@media (min-width:600px) {
-		@content;
+
+// --- (Opcional) Mixin para Media Queries (max-width) ---
+// Aplica estilos HASTA un breakpoint específico HACIA ABAJO.
+// Nota: A menudo se resta 1px o 0.02em para evitar solapamientos.
+@mixin respond-below($breakpoint) {
+	$value: null;
+
+	@if map.has-key(bp.$breakpoints, $breakpoint) {
+		$value: map.get(bp.$breakpoints, $breakpoint);
+	} @else if meta.type-of($breakpoint) == number {
+		$value: if(math.is-unitless($breakpoint), $breakpoint * 1px, $breakpoint);
+	} @else {
+		@error "Breakpoint inválido: `#{$breakpoint}`. Debe ser una clave de $breakpoints (#{map.keys(bp.$breakpoints)}) o un valor numérico.";
+	}
+
+	@if $value {
+		// Ajuste común para max-width: restar una pequeña cantidad para no incluir el tamaño exacto del siguiente breakpoint
+		$adjusted-value: $value -
+			0.02px; // O -1px si prefieres ser más clásico con píxeles
+		// Si usas em/rem, el ajuste podría ser diferente (ej. $value - 0.01em)
+
+		@media (max-width: $adjusted-value) {
+			@content;
+		}
 	}
 }
-@mixin tablet {
-	@media (min-width: 900px) {
-		@content;
+
+// --- (Opcional) Mixin para rangos (min-width y max-width) ---
+@mixin respond-between($min-breakpoint, $max-breakpoint) {
+	$min-value: null;
+	$max-value: null;
+
+	// Obtener valor mínimo
+	@if map.has-key(bp.$breakpoints, $min-breakpoint) {
+		$min-value: map.get(bp.$breakpoints, $min-breakpoint);
+	} @else if meta.type-of($min-breakpoint) == number {
+		$min-value: if(
+			math.is-unitless($min-breakpoint),
+			$min-breakpoint * 1px,
+			$min-breakpoint
+		);
+	} @else {
+		@error "Min Breakpoint inválido: `#{$min-breakpoint}`.";
+	}
+
+	// Obtener valor máximo
+	@if map.has-key(bp.$breakpoints, $max-breakpoint) {
+		$max-value: map.get(bp.$breakpoints, $max-breakpoint);
+	} @else if meta.type-of($max-breakpoint) == number {
+		$max-value: if(
+			math.is-unitless($max-breakpoint),
+			$max-breakpoint * 1px,
+			$max-breakpoint
+		);
+	} @else {
+		@error "Max Breakpoint inválido: `#{$max-breakpoint}`.";
+	}
+
+	// Ajustar valor máximo
+	@if $min-value and $max-value {
+		$adjusted-max-value: $max-value - 0.02px;
+		@media (min-width: $min-value) and (max-width: $adjusted-max-value) {
+			@content;
+		}
 	}
 }
-@mixin desktop {
-	@media (min-width: 1024px) {
-		@content;
+
+// --- TYPOGRAPHY MIXINS ---
+// Función helper para quitar unidades (moderna)
+@function strip-unit($number) {
+	@if meta.type-of($number) == "number" and not math.is-unitless($number) {
+		@return math.div($number, ($number * 0 + 1));
+	}
+	@return $number;
+}
+
+// Mixin para crear tipografía fluida con clamp()
+@mixin fluid-type($min-size, $max-size, $min-width: 320px, $max-width: 1200px) {
+	font-size: clamp(
+		#{$min-size},
+		#{$min-size} + (#{strip-unit($max-size)} - #{strip-unit($min-size)}) * ((
+						100vw - #{$min-width}
+					) / (#{strip-unit($max-width)} - #{strip-unit($min-width)})),
+		#{$max-size}
+	);
+}
+
+// --- LAYOUT MIXINS ---
+// Mixin para el layout común de las páginas (policy, terms, returns, etc.)
+@mixin info-page-layout {
+	width: 100%;
+	max-width: 1200px;
+	min-height: 100vh;
+	margin: 0 auto;
+	padding: 2rem 1.5rem;
+
+	@include respond-above("md") {
+		padding: 3rem 2rem;
 	}
 }
-@mixin huge {
-	@media (max-width: 1404px) {
-		@content;
+
+// Mixin para el encabezado común de las páginas de información
+@mixin info-page-title {
+	padding-top: 1.5rem;
+	padding-bottom: 2rem;
+	@include fluid-type(1.5rem, 1.75rem);
+	font-weight: 500;
+	text-align: center;
+}
+
+// Mixin para el contenedor de contenido
+@mixin info-page-content {
+	display: grid;
+	justify-content: center;
+	gap: 2rem;
+	max-width: 1200px;
+}
+
+// Mixin para secciones dentro de las páginas de información
+@mixin info-page-section {
+	h3 {
+		@include fluid-type(1.25rem, 1.5rem);
+		font-weight: 600;
+		margin-bottom: 1rem;
+		position: relative;
+	}
+
+	p {
+		margin-bottom: 1rem;
+		line-height: 1.6;
+	}
+
+	a {
+		font-weight: 500;
+
+		&:hover {
+			font-style: italic;
+		}
 	}
 }

@@ -1,16 +1,14 @@
-@use "../abstracts/colors" as *;
+@use "../abstracts" as abstracts;
 
 .header {
-	position: fixed;
-	top: 0;
-	left: 0;
+	padding: 3.5rem 0;
 
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	justify-content: center;
-	align-items: center;
-
-	width: 100%;
-	padding: 3rem;
-	transition: background-color 0.3s;
+	@include abstracts.respond-above("md") {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		justify-content: center;
+		align-items: center;
+		padding: 3rem;
+		min-height: auto;
+	}
 }

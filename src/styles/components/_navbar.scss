@@ -1,56 +1,184 @@
 @use "../abstracts/colors" as *;
 @use "../abstracts/fonts" as *;
 @use "../abstracts/mixins" as *;
+@use "../abstracts" as abstracts;
 
 .navbar {
-	grid-column-start: 2;
-	grid-column-end: 4;
-	background-color: black;
-	transition: background-color 0, 3s;
-	padding: 1.3rem 2rem;
-	border-radius: 5rem;
+	// Mobile First: Estilos para el navbar en la parte inferior
+	position: fixed;
+	bottom: 21px;
+	left: 0;
+	right: 0;
+	width: 100%;
+	background-color: abstracts.$clr-bk;
+	padding: 1rem;
+	border-radius: 0;
+	box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+	z-index: 1000;
 
 	// Font settings
-	color: $clr-warm-text;
+	color: abstracts.$clr-white;
 
-	a {
-		text-transform: uppercase;
-		font-size: 1rem;
-		font-weight: 600;
+	// Desktop: Vuelve a la posición superior dentro del grid
+	@include respond-above("md") {
+		position: static;
+		grid-column-start: 2;
+		grid-column-end: 4;
+		background-color: abstracts.$clr-bk;
+		transition: background-color 0.3s;
+		padding: 1.3rem 2rem;
+		border-radius: 5rem;
+		box-shadow: none;
+		width: auto;
+		z-index: auto;
 	}
 
 	&__list {
 		display: flex;
 		justify-content: space-evenly;
+		align-items: center;
+		gap: 1rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
 
-		gap: 3rem;
+		@include respond-above("md") {
+			gap: 3rem;
+		}
+	}
+
+	&__item-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
 	}
 
 	&__item {
+		text-decoration: none;
+		color: abstracts.$clr-white;
+		text-transform: uppercase;
+		font-size: 1rem;
+		font-weight: 600;
+		padding: 0.5rem;
 		position: relative;
+		transition: color 0.3s ease;
+		background: none;
+		border: none;
+		cursor: pointer;
+		font-family: inherit;
+
+		&:hover {
+			color: abstracts.$clr-white;
+		}
 
 		&::after {
 			content: "";
-      position: absolute;
-      bottom: -5px;
-      height: 2px;
-      background-color: $clr-warm-text;
-      left: 50%;
-      transform: translateX(-50%);
-      transform-origin: left center;
-      transition: width 0.3s ease, transform 0.3s ease;
-      width: 0;
+			position: absolute;
+			bottom: -5px;
+			height: 2px;
+			background-color: abstracts.$clr-white;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 0;
+			transition: width 0.3s ease;
 		}
 
 		&--active::after {
+			width: 100%;
+		}
+	}
+
+	// Ocultar/mostrar el enlace Social
+	&__item--social {
+		// Visible en móvil por defecto
+		display: flex;
+
+		// Ocultar en desktop
+		@include respond-above("md") {
+			display: none;
+		}
+	}
+
+	&__social-wrapper {
+		position: relative;
+
+		// Solo visible en móvil
+		@include respond-above("md") {
+			display: none;
+		}
+	}
+
+	&__social-button {
+		background: none;
+		border: none;
+		color: inherit;
+		font: inherit;
+		text-transform: uppercase;
+		font-size: 1rem;
+		font-weight: 600;
+		cursor: pointer;
+		padding: 0.5rem;
+	}
+
+	&__social-tooltip {
+		visibility: hidden;
+		position: absolute;
+		bottom: 120%;
+		left: 50%;
+		transform: translateX(-50%);
+		background-color: rgba(25, 25, 25, 0.85);
+		backdrop-filter: blur(8px);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 12px;
+		padding: 0.75rem;
+		display: flex;
+		gap: 0.75rem;
+		opacity: 0;
+		transition: opacity 0.3s ease, visibility 0.3s ease;
+		z-index: 1001;
+
+		svg {
+			fill: none;
+		}
+
+		&::after {
 			content: "";
 			position: absolute;
+			top: 100%;
 			left: 50%;
-			bottom: -5px;
 			transform: translateX(-50%);
-			width: 100%;
-			height: 2px;
-			background-color: $clr-warm-text;
+			border-width: 6px;
+			border-style: solid;
+			border-color: rgba(25, 25, 25, 0.85) transparent transparent transparent;
 		}
+
+		&--active {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+}
+
+.social-tooltip {
+	&__link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.5rem;
+		border-radius: 50%;
+		background-color: rgba(255, 255, 255, 0.1);
+		transition: all 0.2s ease-out;
+
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.2);
+			transform: scale(1.1);
+		}
+	}
+
+	&__icon {
+		width: 24px;
+		height: 24px;
+		fill: abstracts.$clr-white;
 	}
 }
