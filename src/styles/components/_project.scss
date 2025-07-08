@@ -49,27 +49,18 @@
 
 			margin-bottom: 5rem;
 
-			a {
-				padding: 0.5rem 1.3rem;
-				border: 1px solid $clr-warm-text;
-				border-radius: 2rem;
+			a,
+			div.card__links--private {
+				@include button-style($clr-warm-text);
+			}
 
-				// Hover animations
-				background-color: transparent;
-				background-image: linear-gradient(
-					to right,
-					$clr-warm-text 0%,
-					$clr-warm-text 100%
-				);
-				background-size: 0% 100%;
-				background-repeat: no-repeat;
-				transition: 0.3s ease-out;
+			div.card__links--private {
+				cursor: not-allowed;
 
 				&:hover {
-					background-color: $clr-warm-text;
-					background-size: 100% 100%;
-
-					color: $clr-bk;
+					background-color: transparent;
+					background-size: 0% 100%;
+					color: $clr-warm-text;
 				}
 			}
 		}
@@ -130,27 +121,18 @@
 
 		margin-bottom: 7rem;
 
-		a {
-			padding: 0.5rem 1.3rem;
-			border: 1px solid $clr-white;
-			border-radius: 2rem;
+		a,
+		div.card__links--private {
+			@include button-style($clr-white);
+		}
 
-			// Hover animations
-			background-color: transparent;
-			background-image: linear-gradient(
-				to right,
-				$clr-white 0%,
-				$clr-white 100%
-			);
-			background-size: 0% 100%;
-			background-repeat: no-repeat;
-			transition: 0.3s ease-out;
+		div.card__links--private {
+			cursor: not-allowed;
 
 			&:hover {
-				background-color: $clr-white;
-				background-size: 100% 100%;
-
-				color: $clr-bk;
+				background-color: transparent;
+				background-size: 0% 100%;
+				color: $clr-white;
 			}
 		}
 	}

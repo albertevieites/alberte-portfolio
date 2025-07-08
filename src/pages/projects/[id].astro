@@ -34,7 +34,7 @@ const project = await getEntry(collection, id);
 
 // ✨ AÑADIDO: Comprobación para manejar el caso en que el proyecto no exista
 if (!project) {
-  return Astro.redirect("/404");
+	return Astro.redirect("/404");
 }
 
 const { data: projectData } = project;
@@ -54,7 +54,18 @@ const { data: projectData } = project;
 			</div>
 			<div class="project__content--item project__content--description">
 				<div class="project__content--buttons">
-					<a href={projectData.github}>Github</a>
+					{
+						projectData.isPrivate ? (
+							<div class="card__links--private">
+								Github
+								<span class="tooltiptext">
+									This repository is private due to a client agreement.
+								</span>
+							</div>
+						) : (
+							<a href={projectData.github}>Github</a>
+						)
+					}
 					{projectData.deploy && <a href={projectData.deploy}>Deployment</a>}
 				</div>
 				<p>{projectData.overview}</p>
@@ -115,7 +126,18 @@ const { data: projectData } = project;
 		</div>
 
 		<div class="project__cta">
-			<a href={projectData.github}>Contribute to project</a>
+			{
+				projectData.isPrivate ? (
+					<div class="card__links--private">
+						Contribute to project
+						<span class="tooltiptext">
+							This repository is private due to a client agreement.
+						</span>
+					</div>
+				) : (
+					<a href={projectData.github}>Contribute to project</a>
+				)
+			}
 			<a href="/work" class="btn btn-secondary">Back to Projects</a>
 		</div>
 
