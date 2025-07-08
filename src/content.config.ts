@@ -23,6 +23,7 @@ const projectsSchema = ({ image }: { image: any }) =>
 		),
 		backgroundColor: z.string(),
 		navbarColor: z.string(),
+		isPrivate: z.boolean().optional(),
 	});
 
 const webProjectsCollection = defineCollection({

@@ -4,13 +4,23 @@
 
 .brand {
 	position: relative;
-	flex: 1;
 	display: flex;
 	align-items: center;
 
+	// Font settings
 	font-family: "Rosario";
 	font-weight: 200;
 	color: $clr-warm-text;
+
+	// Mobile: Centrar el brand
+	justify-content: center;
+	width: 100%;
+
+	// Desktop: Mantener el comportamiento original
+	@include respond-above("md") {
+		flex: 1;
+		justify-content: flex-start;
+	}
 
 	&__h2,
 	&__img {

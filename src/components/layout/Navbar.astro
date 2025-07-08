@@ -1,4 +1,7 @@
 ---
+import GithubLogo from "../../assets/logos/github.svg";
+import LinkedinLogo from "../../assets/logos/linkedin.svg";
+
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.endsWith("/")
 	? pathname.slice(1, -1)
@@ -7,43 +10,126 @@ const currentPath = pathname.endsWith("/")
 
 <nav class="navbar">
 	<ul class="navbar__list">
-		<a href="/about">
-			<li
+		<li class="navbar__item-wrapper">
+			<a
+				href="/about"
 				class={`navbar__item ${currentPath === "about" ? "navbar__item--active" : ""}`}
 			>
 				About
-			</li>
-		</a>
-		<a href="/work">
-			<li
+			</a>
+		</li>
+		<li class="navbar__item-wrapper">
+			<a
+				href="/work"
 				class={`navbar__item ${currentPath === "work" ? "navbar__item--active" : ""}`}
 			>
 				Work
-			</li>
-		</a>
-		<a href="/contact">
-			<li
+			</a>
+		</li>
+		<li class="navbar__item-wrapper">
+			<a
+				href="/contact"
 				class={`navbar__item ${currentPath === "contact" ? "navbar__item--active" : ""}`}
 			>
 				Contact
-			</li>
-		</a>
+			</a>
+		</li>
+		<li class="navbar__item-wrapper navbar__item--social">
+			<div class="navbar__social-wrapper">
+				<button class="navbar__item navbar__social-button" data-social-button>
+					Social
+				</button>
+				<div class="navbar__social-tooltip" data-social-tooltip>
+					<a
+						href="https://github.com/albertevieites"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="social-tooltip__link"
+					>
+						<GithubLogo width={24} height={24} class="social-tooltip__icon" />
+					</a>
+					<a
+						href="https://www.linkedin.com/in/albertevieites/"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="social-tooltip__link"
+					>
+						<LinkedinLogo width={24} height={24} class="social-tooltip__icon" />
+					</a>
+				</div>
+			</div>
+		</li>
 	</ul>
 </nav>
 
-<script>
-	document.querySelectorAll(".navbar__item").forEach((item: Element) => {
-		item.addEventListener("click", function (this: HTMLElement) {
-			// Encuentra el elemento anteriormente activo y elimina su clase activa
+<script is:inline>
+	// Usar event delegation para que funcione después de navegaciones
+	document.addEventListener("click", function (e) {
+		const target = e.target;
+
+		// Manejar click en botón social
+		if (
+			target.matches("[data-social-button]") ||
+			target.closest("[data-social-button]")
+		) {
+			e.preventDefault();
+			e.stopPropagation();
+
+			const socialButton = target.matches("[data-social-button]")
+				? target
+				: target.closest("[data-social-button]");
+			const socialTooltip = document.querySelector("[data-social-tooltip]");
+
+			if (socialTooltip) {
+				const isTooltipActive = socialTooltip.classList.contains(
+					"navbar__social-tooltip--active"
+				);
+
+				// Toggle tooltip
+				socialTooltip.classList.toggle("navbar__social-tooltip--active");
+
+				// Toggle active class en el botón social
+				if (isTooltipActive) {
+					socialButton.classList.remove("navbar__item--active");
+				} else {
+					// Remover active de otros items
+					const activeItem = document.querySelector(".navbar__item--active");
+					if (activeItem) {
+						activeItem.classList.remove("navbar__item--active");
+					}
+					// Añadir active al botón social
+					socialButton.classList.add("navbar__item--active");
+				}
+			}
+			return;
+		}
+
+		// Cerrar tooltip si se hace click fuera
+		const socialTooltip = document.querySelector("[data-social-tooltip]");
+		const socialButton = document.querySelector("[data-social-button]");
+
+		if (
+			socialTooltip &&
+			socialButton &&
+			socialTooltip.classList.contains("navbar__social-tooltip--active") &&
+			!socialTooltip.contains(target) &&
+			!socialButton.contains(target)
+		) {
+			socialTooltip.classList.remove("navbar__social-tooltip--active");
+			socialButton.classList.remove("navbar__item--active");
+		}
+	});
+
+	// Manejar navegación activa
+	document.addEventListener("click", function (e) {
+		const target = e.target;
+
+		if (target.matches(".navbar__item:not(.navbar__social-button)")) {
 			const activeItem = document.querySelector(".navbar__item--active");
 			if (activeItem) {
 				activeItem.classList.remove("navbar__item--active");
 			}
-
-			// Agrega la clase activa al elemento actualmente clickeado
-			this.classList.add("navbar__item--active");
-
-			// No es necesario mover la línea con JS si utilizas transiciones CSS como se muestra arriba
-		});
+			target.classList.add("navbar__item--active");
+		}
 	});
 </script>

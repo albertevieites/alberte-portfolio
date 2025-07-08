@@ -1,6 +1,6 @@
 ---
 import { SEO } from "astro-seo";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter, fade } from "astro:transitions";
 
 import Header from "@components/layout/Header.astro";
 import Footer from "@components/layout/Footer.astro";
@@ -14,7 +14,7 @@ const GA_ID = import.meta.env.PUBLIC_GA_ID;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" transition:animate={fade({ duration: "0.3s" })}>
 	<head>
 		<!-- SEO -->
 		<SEO
@@ -34,9 +34,18 @@ const GA_ID = import.meta.env.PUBLIC_GA_ID;
 		/>
 
 		<!-- Favicon -->
-		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-		<link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
-		<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+		<link
+			rel="icon"
+			href="/favicon-dark.svg"
+			type="image/svg+xml"
+			media="(prefers-color-scheme: light)"
+		/>
+		<link
+			rel="icon"
+			href="/favicon.svg"
+			type="image/svg+xml"
+			media="(prefers-color-scheme: dark)"
+		/>
 
 		<!-- Google Tag Manager -->
 		<script
@@ -57,7 +66,7 @@ const GA_ID = import.meta.env.PUBLIC_GA_ID;
 		<!-- TITLE -->
 		<title>{title}</title>
 
-		<ViewTransitions fallback="swap" />
+		<ClientRouter />
 	</head>
 	<body>
 		<Header />

@@ -1,25 +1,23 @@
-@use "../abstracts/colors" as *;
-@use "../abstracts/fonts" as *;
-@use "../abstracts/mixins" as *;
+@use "../abstracts" as abstracts;
 
 .contact {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	align-content: center;
 
 	width: 80vw;
-	height: 100vh;
+	margin-top: 10rem;
 	margin-left: auto;
 	margin-right: auto;
 
-	color: $clr-warm-text;
+	color: abstracts.$clr-white;
+
+	@include abstracts.respond-above("md") {
+		display: flex;
+	}
 
 	&__content {
-		grid-column: span 2;
-
 		padding: 2rem;
-		border-top: solid 2px $clr-warm-text;
-		border-bottom: solid 2px $clr-warm-text;
+		border-top: solid 2px abstracts.$clr-white;
+		border-bottom: solid 2px abstracts.$clr-white;
 
 		span {
 			display: block;
@@ -43,12 +41,14 @@
 
 	&__email,
 	&__linkedin {
+		padding: 0.7rem;
+
 		// Hover animations
 		background-color: transparent;
 		background-image: linear-gradient(
 			to top,
-			$clr-warm-text 0%,
-			$clr-warm-text 100%
+			abstracts.$clr-white 0%,
+			abstracts.$clr-white 100%
 		);
 		background-size: 100% 0;
 		background-repeat: no-repeat;
@@ -59,7 +59,7 @@
 			background-size: 100% 100%;
 			background-position: 0% 0%;
 
-			color: $clr-bk;
+			color: abstracts.$clr-bk;
 		}
 	}
 
@@ -68,15 +68,17 @@
 		align-items: center;
 		justify-content: center;
 
-		border-top: solid 2px $clr-warm-text;
-		border-bottom: solid 2px $clr-warm-text;
-		border-left: solid 2px $clr-warm-text;
-		border-right: solid 2px $clr-warm-text;
-
 		svg {
 			width: 2rem;
 			height: fit-content;
-			padding: .7rem;
+			padding: 0.7rem;
+		}
+
+		@include abstracts.respond-above("md") {
+			border-top: solid 2px abstracts.$clr-white;
+			border-bottom: solid 2px abstracts.$clr-white;
+			border-left: solid 2px abstracts.$clr-white;
+			border-right: solid 2px abstracts.$clr-white;
 		}
 	}
 
@@ -85,11 +87,15 @@
 		align-items: center;
 		justify-content: center;
 
-		border-top: solid 2px $clr-warm-text;
-		border-bottom: solid 2px $clr-warm-text;
-		border-right: solid 2px $clr-warm-text;
+		border-right: none;
+		border-top: solid 2px abstracts.$clr-white;
+		border-bottom: solid 2px abstracts.$clr-white;
 
 		font-size: 1.5rem;
 		font-weight: 600;
+
+		@include abstracts.respond-above("md") {
+			border-right: solid 2px abstracts.$clr-white;
+		}
 	}
 }

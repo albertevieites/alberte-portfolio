@@ -1,4 +1,14 @@
+@use "../abstracts/mixins" as *;
+
 .social {
+	// Ocultar iconos sociales en móvil
+	display: none;
+
+	// Mostrar en desktop
+	@include respond-above("md") {
+		display: block;
+	}
+
 	svg {
 		transition: fill 0.3s ease;
 	}

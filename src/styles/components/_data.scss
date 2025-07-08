@@ -1,16 +1,16 @@
-@use "../abstracts/colors" as *;
+@use "../abstracts" as abstracts;
 @use "../abstracts/fonts" as *;
 @use "../abstracts/mixins" as *;
 
 .data {
-	color: $clr-warm-text;
+	color: abstracts.$clr-white;
 
 	&__title {
 		padding: 2rem 0;
-		border-top: solid 6px $clr-warm-text;
-		border-bottom: solid 2px $clr-warm-text;
+		border-top: solid 6px abstracts.$clr-white;
+		border-bottom: solid 2px abstracts.$clr-white;
 
-		font-size: 2.7rem;
+		@include abstracts.fluid-type(2rem, 2.7rem);
 		font-weight: 800;
 		font-style: italic;
 		text-align: center;

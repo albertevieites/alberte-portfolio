@@ -1,19 +1,16 @@
-@use "../abstracts/colors" as *;
-@use "../abstracts/fonts" as *;
-@use "../abstracts/mixins" as *;
+@use "../abstracts" as abstracts;
 
 .about {
 	display: grid;
 	align-content: center;
 
 	width: 80vw;
-	height: 100vh;
 	margin-left: auto;
 	margin-right: auto;
 
 	font-size: 1.1rem;
 	font-weight: 300;
-	color: $clr-warm-text;
+	color: abstracts.$clr-white;
 	line-height: 1.68em;
 
 	p {
