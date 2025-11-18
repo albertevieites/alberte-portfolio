@@ -3,11 +3,12 @@
 .landing {
 	width: 80vw;
 	margin: 0 auto;
-	margin-top: 20dvh;
+	padding-top: 10dvh;
 	overflow: hidden;
 
 	@include abstracts.respond-above("md") {
 		margin-top: 10dvh;
+		padding-top: 0;
 	}
 
 	&__top,
@@ -17,7 +18,7 @@
 		grid-column: 1 / -1;
 
 		span {
-			font-size: clamp(3rem, 2.413rem + 2.9348vw, 4.6875rem);
+			font-size: clamp(2.5rem, 8vw, 4.6875rem);
 			font-weight: 800;
 			color: abstracts.$clr-white;
 
@@ -41,6 +42,7 @@
 		@include abstracts.respond-below("sm") {
 			flex-direction: column;
 			align-items: center;
+			margin: 2rem 0;
 			padding: 1rem 0;
 		}
 
