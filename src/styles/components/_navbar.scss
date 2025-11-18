@@ -1,35 +1,43 @@
-@use "../abstracts/colors" as *;
-@use "../abstracts/fonts" as *;
-@use "../abstracts/mixins" as *;
 @use "../abstracts" as abstracts;
+@use "../abstracts/mixins" as *;
 
 .navbar {
 	// Mobile First: Estilos para el navbar en la parte inferior
 	position: fixed;
-	bottom: 21px;
+	bottom: 0;
 	left: 0;
 	right: 0;
+
 	width: 100%;
-	background-color: abstracts.$clr-bk;
 	padding: 1rem;
+	background-color: abstracts.$clr-bk;
 	border-radius: 0;
 	box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+
 	z-index: 1000;
 
 	// Font settings
 	color: abstracts.$clr-white;
+	transition: color 0.3s ease;
+
+	body.theme-inverted & {
+		color: abstracts.$clr-bk;
+	}
 
 	// Desktop: Vuelve a la posición superior dentro del grid
 	@include respond-above("md") {
 		position: static;
+
 		grid-column-start: 2;
 		grid-column-end: 4;
+
+		width: auto;
+		padding: 1.3rem 2rem;
 		background-color: abstracts.$clr-bk;
 		transition: background-color 0.3s;
-		padding: 1.3rem 2rem;
 		border-radius: 5rem;
 		box-shadow: none;
-		width: auto;
+
 		z-index: auto;
 	}
 
@@ -55,21 +63,25 @@
 	}
 
 	&__item {
-		text-decoration: none;
-		color: abstracts.$clr-white;
-		text-transform: uppercase;
-		font-size: 1rem;
-		font-weight: 600;
-		padding: 0.5rem;
 		position: relative;
-		transition: color 0.3s ease;
+
+		padding: 0.5rem;
 		background: none;
 		border: none;
-		cursor: pointer;
+
 		font-family: inherit;
+		font-size: 1rem;
+		font-weight: 600;
+		color: inherit;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition: color 0.3s ease;
+
+		cursor: pointer;
 
 		&:hover {
-			color: abstracts.$clr-white;
+			color: inherit;
+			opacity: 0.7;
 		}
 
 		&::after {
@@ -82,6 +94,10 @@
 			transform: translateX(-50%);
 			width: 0;
 			transition: width 0.3s ease;
+
+			body.theme-inverted & {
+        background-color: abstracts.$clr-bk;
+      }
 		}
 
 		&--active::after {
@@ -110,32 +126,39 @@
 	}
 
 	&__social-button {
-		background: none;
+		padding: 0.5rem;
 		border: none;
-		color: inherit;
+		background: none;
+
 		font: inherit;
-		text-transform: uppercase;
 		font-size: 1rem;
 		font-weight: 600;
+		color: inherit;
+		text-transform: uppercase;
+
 		cursor: pointer;
-		padding: 0.5rem;
 	}
 
 	&__social-tooltip {
-		visibility: hidden;
 		position: absolute;
 		bottom: 120%;
-		left: 50%;
-		transform: translateX(-50%);
-		background-color: rgba(25, 25, 25, 0.85);
-		backdrop-filter: blur(8px);
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		border-radius: 12px;
-		padding: 0.75rem;
+		left: 25%;
+
 		display: flex;
 		gap: 0.75rem;
+
+		padding: 0.75rem;
+		background-color: rgba(25, 25, 25, 0.85);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 12px;
+
+		visibility: hidden;
 		opacity: 0;
-		transition: opacity 0.3s ease, visibility 0.3s ease;
+		backdrop-filter: blur(8px);
+		transform: translateX(-50%);
+		transition:
+			opacity 0.3s ease,
+			visibility 0.3s ease;
 		z-index: 1001;
 
 		svg {
@@ -179,6 +202,6 @@
 	&__icon {
 		width: 24px;
 		height: 24px;
-		fill: abstracts.$clr-white;
+		fill: currentColor;
 	}
 }
